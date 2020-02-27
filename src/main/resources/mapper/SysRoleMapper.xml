@@ -119,7 +119,22 @@
     select <include refid="Base_Column_List"></include>
     from sys_role
     <where>
-      deleted = 1
+      deleted=1
+      <if test="roleName !=null and roleName != ''">
+        and name like  concat('%',#{roleName},'%')
+      </if>
+      <if test="roleId !=null and roleId !=''">
+        and id=#{roleId}
+      </if>
+      <if test="status !=null and status !='' or status==0">
+        and status=#{status}
+      </if>
+      <if test="startTime !=null and startTime !=''">
+        and create_time &gt;= #{startTime}
+      </if>
+      <if test="endTime !=null and endTime !=''">
+        and create_time &lt;= #{endTime}
+      </if>
     </where>
   </select>
 

@@ -12,14 +12,14 @@ public class RolePageReqVo {
     @ApiModelProperty(value = "当前页的数量")
     private int pageSize;
 
-//    @ApiModelProperty(value = "角色id")
-//    private String roleId;
-//    @ApiModelProperty(value = "角色名称")
-//    private String roleName;
-//    @ApiModelProperty(value = "角色状态")
-//    private Integer status;
-//    @ApiModelProperty(value = "开始时间")
-//    private String startTime;
-//    @ApiModelProperty(value = "结束时间")
-//    private String endTime;
+    @ApiModelProperty(value = "角色id")
+    private String roleId;
+    @ApiModelProperty(value = "角色名称")
+    private String roleName;
+    @ApiModelProperty(value = "角色状态")
+    private Integer status;
+    @ApiModelProperty(value = "开始时间")
+    private String startTime;
+    @ApiModelProperty(value = "结束时间")
+    private String endTime;
 }

@@ -7482,3 +7482,513 @@ Caused by: com.alibaba.druid.sql.parser.ParserException: ERROR. pos 164, line 13
 2020-02-27 13:01:12.601  INFO 30557 --- [http-nio-8081-exec-9] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/permissions
 2020-02-27 13:01:14.102  INFO 30557 --- [http-nio-8081-exec-2] c.b.shiro.CustomAccessControlerFilter    : POST
 2020-02-27 13:01:14.103  INFO 30557 --- [http-nio-8081-exec-2] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/roles
+2020-02-27 13:06:38.782  INFO 30557 --- [http-nio-8081-exec-8] c.b.shiro.CustomAccessControlerFilter    : GET
+2020-02-27 13:06:38.782  INFO 30557 --- [http-nio-8081-exec-8] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/permission/tree/all
+2020-02-27 13:09:05.676  INFO 30557 --- [Thread-25] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-27 13:09:05.691  INFO 30557 --- [Thread-25] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-02-27 13:09:07.377  INFO 30557 --- [restartedMain] com.bohan.CommunityFrameApplication      : Starting CommunityFrameApplication on MacBook-Pro.local with PID 30557 (/Users/bohanxiao/Desktop/community-frame/target/classes started by bohanxiao in /Users/bohanxiao/Desktop/community-frame)
+2020-02-27 13:09:07.377  INFO 30557 --- [restartedMain] com.bohan.CommunityFrameApplication      : No active profile set, falling back to default profiles: default
+2020-02-27 13:09:07.972  INFO 30557 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-27 13:09:07.972  INFO 30557 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-27 13:09:07.993  INFO 30557 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 repository interfaces.
+2020-02-27 13:09:08.074  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.bohan.config.ShiroConfig$$EnhancerBySpringCGLIB$$91e99a9e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.086  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.bohan.config.RedisConfig$$EnhancerBySpringCGLIB$$dcb821e8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.094  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.096  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$$EnhancerBySpringCGLIB$$5fef4429] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.098  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.102  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.108  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.108  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisService' of type [com.bohan.service.RedisService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.108  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'credentialsMatcher' of type [com.bohan.shiro.CredentialsMatcher] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.110  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisCacheManager' of type [com.bohan.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.111  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'customRealm' of type [com.bohan.shiro.CustomRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.112  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.126  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.140  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4ad585df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:09:08.394  INFO 30557 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-02-27 13:09:08.395  INFO 30557 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-27 13:09:08.395  INFO 30557 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-02-27 13:09:08.411  INFO 30557 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-27 13:09:08.411  INFO 30557 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1031 ms
+2020-02-27 13:09:08.536  INFO 30557 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-27 13:09:08.736  INFO 30557 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2020-02-27 13:09:09.915  INFO 30557 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-27 13:09:10.197  INFO 30557 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-27 13:09:10.270  INFO 30557 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-27 13:09:10.711  INFO 30557 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-27 13:09:10.712  INFO 30557 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-27 13:09:10.722  INFO 30557 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-27 13:09:10.825  INFO 30557 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getHomeUsingGET_1
+2020-02-27 13:09:10.847  INFO 30557 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: pageInfoUsingPOST_1
+2020-02-27 13:09:10.862  INFO 30557 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-27 13:09:10.863  INFO 30557 --- [restartedMain] com.bohan.CommunityFrameApplication      : Started CommunityFrameApplication in 3.756 seconds (JVM running for 565.588)
+2020-02-27 13:09:10.870  INFO 30557 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-27 13:11:05.890  INFO 30557 --- [Thread-37] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-27 13:11:05.899  INFO 30557 --- [Thread-37] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2020-02-27 13:11:06.303  INFO 30557 --- [restartedMain] com.bohan.CommunityFrameApplication      : Starting CommunityFrameApplication on MacBook-Pro.local with PID 30557 (/Users/bohanxiao/Desktop/community-frame/target/classes started by bohanxiao in /Users/bohanxiao/Desktop/community-frame)
+2020-02-27 13:11:06.304  INFO 30557 --- [restartedMain] com.bohan.CommunityFrameApplication      : No active profile set, falling back to default profiles: default
+2020-02-27 13:11:07.500  INFO 30557 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-27 13:11:07.501  INFO 30557 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-27 13:11:07.532  INFO 30557 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31ms. Found 0 repository interfaces.
+2020-02-27 13:11:07.653  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.bohan.config.ShiroConfig$$EnhancerBySpringCGLIB$$91e99a9e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.679  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.bohan.config.RedisConfig$$EnhancerBySpringCGLIB$$dcb821e8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.703  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.705  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$$EnhancerBySpringCGLIB$$5fef4429] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.716  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.719  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.721  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.722  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisService' of type [com.bohan.service.RedisService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.725  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'credentialsMatcher' of type [com.bohan.shiro.CredentialsMatcher] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.731  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisCacheManager' of type [com.bohan.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.735  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'customRealm' of type [com.bohan.shiro.CustomRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.736  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.754  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:07.778  INFO 30557 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4ad585df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:11:08.150  INFO 30557 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-02-27 13:11:08.151  INFO 30557 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-27 13:11:08.151  INFO 30557 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-02-27 13:11:08.329  INFO 30557 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-27 13:11:08.329  INFO 30557 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2020 ms
+2020-02-27 13:11:08.976  INFO 30557 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-27 13:11:10.416  INFO 30557 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} inited
+2020-02-27 13:11:12.872  INFO 30557 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-27 13:11:13.128  INFO 30557 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-27 13:11:13.184  INFO 30557 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-27 13:11:13.630  INFO 30557 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-27 13:11:13.631  INFO 30557 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-27 13:11:13.636  INFO 30557 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-27 13:11:13.710  INFO 30557 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getHomeUsingGET_1
+2020-02-27 13:11:13.734  INFO 30557 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: pageInfoUsingPOST_1
+2020-02-27 13:11:13.747  INFO 30557 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-27 13:11:13.747  INFO 30557 --- [restartedMain] com.bohan.CommunityFrameApplication      : Started CommunityFrameApplication in 7.482 seconds (JVM running for 688.469)
+2020-02-27 13:11:13.751  INFO 30557 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-02-27 13:15:09.790  INFO 30557 --- [Thread-48] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-27 13:15:09.796  INFO 30557 --- [Thread-48] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} closed
+2020-02-27 13:15:18.449  INFO 30654 --- [restartedMain] com.bohan.CommunityFrameApplication      : Starting CommunityFrameApplication on MacBook-Pro.local with PID 30654 (/Users/bohanxiao/Desktop/community-frame/target/classes started by bohanxiao in /Users/bohanxiao/Desktop/community-frame)
+2020-02-27 13:15:18.460  INFO 30654 --- [restartedMain] com.bohan.CommunityFrameApplication      : No active profile set, falling back to default profiles: default
+2020-02-27 13:15:18.630  INFO 30654 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-27 13:15:18.630  INFO 30654 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-27 13:15:22.259  INFO 30654 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-27 13:15:22.265  INFO 30654 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-27 13:15:22.415  INFO 30654 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115ms. Found 0 repository interfaces.
+2020-02-27 13:15:23.344  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.bohan.config.ShiroConfig$$EnhancerBySpringCGLIB$$80d61c5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:23.763  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.bohan.config.RedisConfig$$EnhancerBySpringCGLIB$$52dbe90f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:23.816  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:23.829  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$$EnhancerBySpringCGLIB$$d6130b50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.010  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.134  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.170  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.176  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisService' of type [com.bohan.service.RedisService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.177  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'credentialsMatcher' of type [com.bohan.shiro.CredentialsMatcher] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.182  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisCacheManager' of type [com.bohan.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.191  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'customRealm' of type [com.bohan.shiro.CustomRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.198  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.285  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.342  INFO 30654 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c0f94d06] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:15:24.995  INFO 30654 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-02-27 13:15:25.033  INFO 30654 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-27 13:15:25.033  INFO 30654 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-02-27 13:15:25.167  INFO 30654 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-27 13:15:25.168  INFO 30654 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6538 ms
+2020-02-27 13:15:25.418  INFO 30654 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-27 13:15:26.035  INFO 30654 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-02-27 13:15:27.752  INFO 30654 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-27 13:15:28.134  INFO 30654 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-27 13:15:28.280  INFO 30654 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-27 13:15:29.078  INFO 30654 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-27 13:15:29.098  INFO 30654 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-27 13:15:29.151  INFO 30654 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-27 13:15:29.548  INFO 30654 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getHomeUsingGET_1
+2020-02-27 13:15:29.585  INFO 30654 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: pageInfoUsingPOST_1
+2020-02-27 13:15:29.669  INFO 30654 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-27 13:15:29.676  INFO 30654 --- [restartedMain] com.bohan.CommunityFrameApplication      : Started CommunityFrameApplication in 12.326 seconds (JVM running for 14.923)
+2020-02-27 13:15:49.711  INFO 30654 --- [Thread-34] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-02-27 13:15:49.742  INFO 30654 --- [Thread-34] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-02-27 13:15:56.996  INFO 30661 --- [restartedMain] com.bohan.CommunityFrameApplication      : Starting CommunityFrameApplication on MacBook-Pro.local with PID 30661 (/Users/bohanxiao/Desktop/community-frame/target/classes started by bohanxiao in /Users/bohanxiao/Desktop/community-frame)
+2020-02-27 13:15:56.999 DEBUG 30661 --- [restartedMain] com.bohan.CommunityFrameApplication      : Running with Spring Boot v2.1.6.RELEASE, Spring v5.1.8.RELEASE
+2020-02-27 13:15:57.000  INFO 30661 --- [restartedMain] com.bohan.CommunityFrameApplication      : No active profile set, falling back to default profiles: default
+2020-02-27 13:15:57.215  INFO 30661 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-27 13:15:57.216  INFO 30661 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-27 13:16:00.502  INFO 30661 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-27 13:16:00.512  INFO 30661 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-02-27 13:16:00.661  INFO 30661 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73ms. Found 0 repository interfaces.
+2020-02-27 13:16:01.378  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [com.bohan.config.ShiroConfig$$EnhancerBySpringCGLIB$$eed0414d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:01.847  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConfig' of type [com.bohan.config.RedisConfig$$EnhancerBySpringCGLIB$$399ec897] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:01.897  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'spring.redis-org.springframework.boot.autoconfigure.data.redis.RedisProperties' of type [org.springframework.boot.autoconfigure.data.redis.RedisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:01.903  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration' of type [org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$$EnhancerBySpringCGLIB$$bcd5ead8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.048  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'lettuceClientResources' of type [io.lettuce.core.resource.DefaultClientResources] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.176  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisConnectionFactory' of type [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.194  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisTemplate' of type [org.springframework.data.redis.core.RedisTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.196  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisService' of type [com.bohan.service.RedisService] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.197  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'credentialsMatcher' of type [com.bohan.shiro.CredentialsMatcher] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.200  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'redisCacheManager' of type [com.bohan.shiro.RedisCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.203  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'customRealm' of type [com.bohan.shiro.CustomRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.212  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.288  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:02.351  INFO 30661 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7bc2c8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-27 13:16:03.003  INFO 30661 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2020-02-27 13:16:03.041  INFO 30661 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-27 13:16:03.042  INFO 30661 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2020-02-27 13:16:03.195  INFO 30661 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-27 13:16:03.196  INFO 30661 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5979 ms
+2020-02-27 13:16:03.463  INFO 30661 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2020-02-27 13:16:04.085  INFO 30661 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2020-02-27 13:16:05.662  INFO 30661 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-02-27 13:16:06.030  INFO 30661 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-27 13:16:06.186  INFO 30661 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-27 13:16:06.956  INFO 30661 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-02-27 13:16:06.979  INFO 30661 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-02-27 13:16:07.019  INFO 30661 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-02-27 13:16:07.359  INFO 30661 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getHomeUsingGET_1
+2020-02-27 13:16:07.399  INFO 30661 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: pageInfoUsingPOST_1
+2020-02-27 13:16:07.473  INFO 30661 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2020-02-27 13:16:07.481  INFO 30661 --- [restartedMain] com.bohan.CommunityFrameApplication      : Started CommunityFrameApplication in 11.513 seconds (JVM running for 13.502)
+2020-02-27 13:16:43.673  INFO 30661 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-27 13:16:43.673  INFO 30661 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-27 13:16:43.687  INFO 30661 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
+2020-02-27 13:16:44.698  INFO 30661 --- [http-nio-8081-exec-6] c.b.shiro.CustomAccessControlerFilter    : GET
+2020-02-27 13:16:44.700  INFO 30661 --- [http-nio-8081-exec-6] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/home
+2020-02-27 13:16:44.868 ERROR 30661 --- [http-nio-8081-exec-6] com.bohan.utils.JwtTokenUtil             : error={}
+
+java.lang.NullPointerException: null
+	at com.bohan.utils.JwtTokenUtil.getUserId(JwtTokenUtil.java:120) ~[classes/:na]
+	at com.bohan.shiro.CredentialsMatcher.doCredentialsMatch(CredentialsMatcher.java:28) [classes/:na]
+	at org.apache.shiro.realm.AuthenticatingRealm.assertCredentialsMatch(AuthenticatingRealm.java:600) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:581) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:275) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260) [shiro-core-1.4.1.jar:1.4.1]
+	at com.bohan.shiro.CustomAccessControlerFilter.onAccessDenied(CustomAccessControlerFilter.java:48) [classes/:na]
+	at org.apache.shiro.web.filter.AccessControlFilter.onAccessDenied(AccessControlFilter.java:133) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) [druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+
+2020-02-27 13:16:45.020  INFO 30661 --- [http-nio-8081-exec-6] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-02-27 13:16:45.022  INFO 30661 --- [http-nio-8081-exec-6] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-02-27 13:16:45.402  WARN 30661 --- [http-nio-8081-exec-6] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.bohan.shiro.CustomUsernamePasswordToken - null, rememberMe=false].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
+
+com.bohan.exception.BusinessException: null
+	at com.bohan.shiro.CredentialsMatcher.doCredentialsMatch(CredentialsMatcher.java:46) ~[classes/:na]
+	at org.apache.shiro.realm.AuthenticatingRealm.assertCredentialsMatch(AuthenticatingRealm.java:600) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:581) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:275) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260) [shiro-core-1.4.1.jar:1.4.1]
+	at com.bohan.shiro.CustomAccessControlerFilter.onAccessDenied(CustomAccessControlerFilter.java:48) [classes/:na]
+	at org.apache.shiro.web.filter.AccessControlFilter.onAccessDenied(AccessControlFilter.java:133) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) [druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+
+2020-02-27 13:16:51.352  INFO 30661 --- [http-nio-8081-exec-6] c.b.shiro.CustomAccessControlerFilter    : GET
+2020-02-27 13:16:51.352  INFO 30661 --- [http-nio-8081-exec-6] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/home
+2020-02-27 13:16:51.357 ERROR 30661 --- [http-nio-8081-exec-6] com.bohan.utils.JwtTokenUtil             : error={}
+
+java.lang.NullPointerException: null
+	at com.bohan.utils.JwtTokenUtil.getUserId(JwtTokenUtil.java:120) ~[classes/:na]
+	at com.bohan.shiro.CredentialsMatcher.doCredentialsMatch(CredentialsMatcher.java:28) [classes/:na]
+	at org.apache.shiro.realm.AuthenticatingRealm.assertCredentialsMatch(AuthenticatingRealm.java:600) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:581) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:275) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260) [shiro-core-1.4.1.jar:1.4.1]
+	at com.bohan.shiro.CustomAccessControlerFilter.onAccessDenied(CustomAccessControlerFilter.java:48) [classes/:na]
+	at org.apache.shiro.web.filter.AccessControlFilter.onAccessDenied(AccessControlFilter.java:133) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) [druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+
+2020-02-27 13:16:51.366  WARN 30661 --- [http-nio-8081-exec-6] o.a.shiro.authc.AbstractAuthenticator    : Authentication failed for token submission [com.bohan.shiro.CustomUsernamePasswordToken - null, rememberMe=false].  Possible unexpected error? (Typical or expected login exceptions should extend from AuthenticationException).
+
+com.bohan.exception.BusinessException: null
+	at com.bohan.shiro.CredentialsMatcher.doCredentialsMatch(CredentialsMatcher.java:46) ~[classes/:na]
+	at org.apache.shiro.realm.AuthenticatingRealm.assertCredentialsMatch(AuthenticatingRealm.java:600) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:581) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198) ~[shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:275) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:260) [shiro-core-1.4.1.jar:1.4.1]
+	at com.bohan.shiro.CustomAccessControlerFilter.onAccessDenied(CustomAccessControlerFilter.java:48) [classes/:na]
+	at org.apache.shiro.web.filter.AccessControlFilter.onAccessDenied(AccessControlFilter.java:133) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.AccessControlFilter.onPreHandle(AccessControlFilter.java:162) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.PathMatchingFilter.isFilterChainContinued(PathMatchingFilter.java:203) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.filter.PathMatchingFilter.preHandle(PathMatchingFilter.java:178) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:131) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387) [shiro-core-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125) [shiro-web-1.4.1.jar:1.4.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) [druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109) [spring-web-5.1.8.RELEASE.jar:5.1.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_241]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_241]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.21.jar:9.0.21]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_241]
+
+2020-02-27 13:17:01.755 DEBUG 30661 --- [http-nio-8081-exec-4] c.b.m.SysUserMapper.getUserInfoByName    : ==>  Preparing: select id, username, salt, `password`, phone, dept_id, real_name, nick_name, email, `status`, sex, deleted, create_id, update_id, create_where, create_time, update_time from sys_user where deleted=1 and username=? 
+2020-02-27 13:17:01.905 DEBUG 30661 --- [http-nio-8081-exec-4] c.b.m.SysUserMapper.getUserInfoByName    : ==> Parameters: admin(String)
+2020-02-27 13:17:01.934 DEBUG 30661 --- [http-nio-8081-exec-4] c.b.m.SysUserMapper.getUserInfoByName    : <==      Total: 1
+2020-02-27 13:17:02.459  INFO 30661 --- [http-nio-8081-exec-5] c.b.shiro.CustomAccessControlerFilter    : GET
+2020-02-27 13:17:02.460  INFO 30661 --- [http-nio-8081-exec-5] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/home
+2020-02-27 13:17:02.497 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysPermissionMapper.selectAll      : ==>  Preparing: select id, code, `name`, perms, url, `method`, pid, order_num, `type`, `status`, create_time, update_time, deleted from sys_permission where deleted=1 order by order_num desc 
+2020-02-27 13:17:02.508 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysPermissionMapper.selectAll      : ==> Parameters: 
+2020-02-27 13:17:02.517 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysPermissionMapper.selectAll      : <==      Total: 3
+2020-02-27 13:17:02.534 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysUserMapper.selectByPrimaryKey   : ==>  Preparing: select id, username, salt, `password`, phone, dept_id, real_name, nick_name, email, `status`, sex, deleted, create_id, update_id, create_where, create_time, update_time from sys_user where id = ? 
+2020-02-27 13:17:02.537 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysUserMapper.selectByPrimaryKey   : ==> Parameters: 9a26f5f1-cbd2-473d-82db-1d6dcf4598f8(String)
+2020-02-27 13:17:02.541 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysUserMapper.selectByPrimaryKey   : <==      Total: 1
+2020-02-27 13:17:03.922  INFO 30661 --- [http-nio-8081-exec-8] c.b.shiro.CustomAccessControlerFilter    : GET
+2020-02-27 13:17:03.923  INFO 30661 --- [http-nio-8081-exec-8] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/permissions
+2020-02-27 13:17:03.935 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysPermissionMapper.selectAll      : ==>  Preparing: select id, code, `name`, perms, url, `method`, pid, order_num, `type`, `status`, create_time, update_time, deleted from sys_permission where deleted=1 order by order_num desc 
+2020-02-27 13:17:03.935 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysPermissionMapper.selectAll      : ==> Parameters: 
+2020-02-27 13:17:03.940 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysPermissionMapper.selectAll      : <==      Total: 3
+2020-02-27 13:17:03.941 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : ==>  Preparing: select id, code, `name`, perms, url, `method`, pid, order_num, `type`, `status`, create_time, update_time, deleted from sys_permission where id = ? 
+2020-02-27 13:17:03.943 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : ==> Parameters: 0(String)
+2020-02-27 13:17:03.944 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : <==      Total: 0
+2020-02-27 13:17:03.945 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : ==>  Preparing: select id, code, `name`, perms, url, `method`, pid, order_num, `type`, `status`, create_time, update_time, deleted from sys_permission where id = ? 
+2020-02-27 13:17:03.945 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : ==> Parameters: 081221d8-4fd6-4c09-8be5-90d537367c53(String)
+2020-02-27 13:17:03.946 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : <==      Total: 1
+2020-02-27 13:17:03.947 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : ==>  Preparing: select id, code, `name`, perms, url, `method`, pid, order_num, `type`, `status`, create_time, update_time, deleted from sys_permission where id = ? 
+2020-02-27 13:17:03.947 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : ==> Parameters: 081221d8-4fd6-4c09-8be5-90d537367c53(String)
+2020-02-27 13:17:03.949 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.S.selectByPrimaryKey               : <==      Total: 1
+2020-02-27 13:17:03.949 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysPermissionMapper.selectAll      : ==>  Preparing: select id, code, `name`, perms, url, `method`, pid, order_num, `type`, `status`, create_time, update_time, deleted from sys_permission where deleted=1 order by order_num desc 
+2020-02-27 13:17:03.950 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysPermissionMapper.selectAll      : ==> Parameters: 
+2020-02-27 13:17:03.954 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysPermissionMapper.selectAll      : <==      Total: 3
+2020-02-27 13:17:05.223  INFO 30661 --- [http-nio-8081-exec-6] c.b.shiro.CustomAccessControlerFilter    : POST
+2020-02-27 13:17:05.223  INFO 30661 --- [http-nio-8081-exec-6] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/roles
+2020-02-27 13:17:05.319 DEBUG 30661 --- [http-nio-8081-exec-6] c.b.m.SysRoleMapper.selectAll_COUNT      : ==>  Preparing: SELECT count(0) FROM sys_role WHERE deleted = 1 
+2020-02-27 13:17:05.323 DEBUG 30661 --- [http-nio-8081-exec-6] c.b.m.SysRoleMapper.selectAll_COUNT      : ==> Parameters: 
+2020-02-27 13:17:05.333 DEBUG 30661 --- [http-nio-8081-exec-6] c.b.m.SysRoleMapper.selectAll_COUNT      : <==      Total: 1
+2020-02-27 13:17:05.351 DEBUG 30661 --- [http-nio-8081-exec-6] c.bohan.mapper.SysRoleMapper.selectAll   : ==>  Preparing: select id, `name`, description, `status`, create_time, update_time, deleted from sys_role WHERE deleted=1 LIMIT ? 
+2020-02-27 13:17:05.354 DEBUG 30661 --- [http-nio-8081-exec-6] c.bohan.mapper.SysRoleMapper.selectAll   : ==> Parameters: 10(Integer)
+2020-02-27 13:17:05.368 DEBUG 30661 --- [http-nio-8081-exec-6] c.bohan.mapper.SysRoleMapper.selectAll   : <==      Total: 1
+2020-02-27 13:17:15.092  INFO 30661 --- [http-nio-8081-exec-8] c.b.shiro.CustomAccessControlerFilter    : POST
+2020-02-27 13:17:15.093  INFO 30661 --- [http-nio-8081-exec-8] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/roles
+2020-02-27 13:17:15.117 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysRoleMapper.selectAll_COUNT      : ==>  Preparing: SELECT count(0) FROM sys_role WHERE deleted = 1 AND name LIKE concat('%', ?, '%') AND status = ? 
+2020-02-27 13:17:15.122 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysRoleMapper.selectAll_COUNT      : ==> Parameters: 员(String), 1(Integer)
+2020-02-27 13:17:15.133 DEBUG 30661 --- [http-nio-8081-exec-8] c.b.m.SysRoleMapper.selectAll_COUNT      : <==      Total: 1
+2020-02-27 13:17:15.137 DEBUG 30661 --- [http-nio-8081-exec-8] c.bohan.mapper.SysRoleMapper.selectAll   : ==>  Preparing: select id, `name`, description, `status`, create_time, update_time, deleted from sys_role WHERE deleted=1 and name like concat('%',?,'%') and status=? LIMIT ? 
+2020-02-27 13:17:15.139 DEBUG 30661 --- [http-nio-8081-exec-8] c.bohan.mapper.SysRoleMapper.selectAll   : ==> Parameters: 员(String), 1(Integer), 10(Integer)
+2020-02-27 13:17:15.141 DEBUG 30661 --- [http-nio-8081-exec-8] c.bohan.mapper.SysRoleMapper.selectAll   : <==      Total: 1
+2020-02-27 13:17:17.636  INFO 30661 --- [http-nio-8081-exec-5] c.b.shiro.CustomAccessControlerFilter    : POST
+2020-02-27 13:17:17.636  INFO 30661 --- [http-nio-8081-exec-5] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/roles
+2020-02-27 13:17:17.652 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysRoleMapper.selectAll_COUNT      : ==>  Preparing: SELECT count(0) FROM sys_role WHERE deleted = 1 AND status = ? 
+2020-02-27 13:17:17.653 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysRoleMapper.selectAll_COUNT      : ==> Parameters: 1(Integer)
+2020-02-27 13:17:17.654 DEBUG 30661 --- [http-nio-8081-exec-5] c.b.m.SysRoleMapper.selectAll_COUNT      : <==      Total: 1
+2020-02-27 13:17:17.655 DEBUG 30661 --- [http-nio-8081-exec-5] c.bohan.mapper.SysRoleMapper.selectAll   : ==>  Preparing: select id, `name`, description, `status`, create_time, update_time, deleted from sys_role WHERE deleted=1 and status=? LIMIT ? 
+2020-02-27 13:17:17.657 DEBUG 30661 --- [http-nio-8081-exec-5] c.bohan.mapper.SysRoleMapper.selectAll   : ==> Parameters: 1(Integer), 10(Integer)
+2020-02-27 13:17:17.658 DEBUG 30661 --- [http-nio-8081-exec-5] c.bohan.mapper.SysRoleMapper.selectAll   : <==      Total: 1
+2020-02-27 13:17:18.622  INFO 30661 --- [http-nio-8081-exec-7] c.b.shiro.CustomAccessControlerFilter    : POST
+2020-02-27 13:17:18.623  INFO 30661 --- [http-nio-8081-exec-7] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/roles
+2020-02-27 13:17:18.637 DEBUG 30661 --- [http-nio-8081-exec-7] c.b.m.SysRoleMapper.selectAll_COUNT      : ==>  Preparing: SELECT count(0) FROM sys_role WHERE deleted = 1 AND status = ? 
+2020-02-27 13:17:18.637 DEBUG 30661 --- [http-nio-8081-exec-7] c.b.m.SysRoleMapper.selectAll_COUNT      : ==> Parameters: 1(Integer)
+2020-02-27 13:17:18.638 DEBUG 30661 --- [http-nio-8081-exec-7] c.b.m.SysRoleMapper.selectAll_COUNT      : <==      Total: 1
+2020-02-27 13:17:18.639 DEBUG 30661 --- [http-nio-8081-exec-7] c.bohan.mapper.SysRoleMapper.selectAll   : ==>  Preparing: select id, `name`, description, `status`, create_time, update_time, deleted from sys_role WHERE deleted=1 and status=? LIMIT ? 
+2020-02-27 13:17:18.640 DEBUG 30661 --- [http-nio-8081-exec-7] c.bohan.mapper.SysRoleMapper.selectAll   : ==> Parameters: 1(Integer), 10(Integer)
+2020-02-27 13:17:18.642 DEBUG 30661 --- [http-nio-8081-exec-7] c.bohan.mapper.SysRoleMapper.selectAll   : <==      Total: 1
+2020-02-27 13:17:20.689  INFO 30661 --- [http-nio-8081-exec-1] c.b.shiro.CustomAccessControlerFilter    : POST
+2020-02-27 13:17:20.690  INFO 30661 --- [http-nio-8081-exec-1] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/roles
+2020-02-27 13:17:20.705 DEBUG 30661 --- [http-nio-8081-exec-1] c.b.m.SysRoleMapper.selectAll_COUNT      : ==>  Preparing: SELECT count(0) FROM sys_role WHERE deleted = 1 AND name LIKE concat('%', ?, '%') AND status = ? 
+2020-02-27 13:17:20.705 DEBUG 30661 --- [http-nio-8081-exec-1] c.b.m.SysRoleMapper.selectAll_COUNT      : ==> Parameters: asd(String), 1(Integer)
+2020-02-27 13:17:20.706 DEBUG 30661 --- [http-nio-8081-exec-1] c.b.m.SysRoleMapper.selectAll_COUNT      : <==      Total: 1
+2020-02-27 13:17:23.472  INFO 30661 --- [http-nio-8081-exec-9] c.b.shiro.CustomAccessControlerFilter    : POST
+2020-02-27 13:17:23.472  INFO 30661 --- [http-nio-8081-exec-9] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/roles
+2020-02-27 13:17:23.493 DEBUG 30661 --- [http-nio-8081-exec-9] c.b.m.SysRoleMapper.selectAll_COUNT      : ==>  Preparing: SELECT count(0) FROM sys_role WHERE deleted = 1 AND name LIKE concat('%', ?, '%') AND status = ? 
+2020-02-27 13:17:23.494 DEBUG 30661 --- [http-nio-8081-exec-9] c.b.m.SysRoleMapper.selectAll_COUNT      : ==> Parameters: dfdfdf(String), 1(Integer)
+2020-02-27 13:17:23.495 DEBUG 30661 --- [http-nio-8081-exec-9] c.b.m.SysRoleMapper.selectAll_COUNT      : <==      Total: 1
+2020-02-27 13:17:27.463  INFO 30661 --- [http-nio-8081-exec-4] c.b.shiro.CustomAccessControlerFilter    : POST
+2020-02-27 13:17:27.463  INFO 30661 --- [http-nio-8081-exec-4] c.b.shiro.CustomAccessControlerFilter    : http://localhost:8081/api/roles
+2020-02-27 13:17:27.480 DEBUG 30661 --- [http-nio-8081-exec-4] c.b.m.SysRoleMapper.selectAll_COUNT      : ==>  Preparing: SELECT count(0) FROM sys_role WHERE deleted = 1 AND name LIKE concat('%', ?, '%') AND status = ? 
+2020-02-27 13:17:27.480 DEBUG 30661 --- [http-nio-8081-exec-4] c.b.m.SysRoleMapper.selectAll_COUNT      : ==> Parameters: 员(String), 1(Integer)
+2020-02-27 13:17:27.481 DEBUG 30661 --- [http-nio-8081-exec-4] c.b.m.SysRoleMapper.selectAll_COUNT      : <==      Total: 1
+2020-02-27 13:17:27.483 DEBUG 30661 --- [http-nio-8081-exec-4] c.bohan.mapper.SysRoleMapper.selectAll   : ==>  Preparing: select id, `name`, description, `status`, create_time, update_time, deleted from sys_role WHERE deleted=1 and name like concat('%',?,'%') and status=? LIMIT ? 
+2020-02-27 13:17:27.484 DEBUG 30661 --- [http-nio-8081-exec-4] c.bohan.mapper.SysRoleMapper.selectAll   : ==> Parameters: 员(String), 1(Integer), 10(Integer)
+2020-02-27 13:17:27.492 DEBUG 30661 --- [http-nio-8081-exec-4] c.bohan.mapper.SysRoleMapper.selectAll   : <==      Total: 1
