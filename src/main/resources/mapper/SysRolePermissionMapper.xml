@@ -79,4 +79,24 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  
+  
+  <insert id="batchInsertRolePermission" parameterType="com.bohan.entity.SysRolePermission">
+    insert into sys_role_permission(
+    id,
+    role_id,
+    permission_id,
+    create_time
+    )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (
+      #{item.id},
+      #{item.roleId},
+      #{item.permissionId},
+      #{item.createTime}
+      )
+    </foreach>
+
+  </insert>
 </mapper>

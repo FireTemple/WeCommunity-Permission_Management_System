@@ -2,6 +2,8 @@ package com.bohan.mapper;
 
 import com.bohan.entity.SysRolePermission;
 
+import java.util.List;
+
 public interface SysRolePermissionMapper {
     int deleteByPrimaryKey(String id);
 
@@ -14,4 +16,6 @@ public interface SysRolePermissionMapper {
     int updateByPrimaryKeySelective(SysRolePermission record);
 
     int updateByPrimaryKey(SysRolePermission record);
+
+    int batchInsertRolePermission(List<SysRolePermission> list);
 }

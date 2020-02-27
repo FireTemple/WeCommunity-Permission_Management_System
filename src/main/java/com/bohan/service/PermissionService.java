@@ -11,4 +11,6 @@ public interface PermissionService {
     List<PermissionRespNodeVo> selectAllMenuByTree();
     SysPermission addPermission(PermissionAddReqVO vo);
     List<PermissionRespNodeVo> permissionTreeList(String userid);
+    List<PermissionRespNodeVo> selectAllTree();
+
 }

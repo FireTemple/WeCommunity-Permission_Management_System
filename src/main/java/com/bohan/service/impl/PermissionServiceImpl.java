@@ -39,7 +39,10 @@ public class PermissionServiceImpl implements PermissionService {
         return sysPermissionMapper.selectAll();
     }
 
-
+    @Override
+    public List<PermissionRespNodeVo> selectAllTree() {
+        return getTree(selectAll(),false);
+    }
 
     @Override
     public List<PermissionRespNodeVo> selectAllMenuByTree() {
@@ -48,13 +51,19 @@ public class PermissionServiceImpl implements PermissionService {
         PermissionRespNodeVo respNodeVo = new PermissionRespNodeVo();
         respNodeVo.setId("0");
         respNodeVo.setTitle("默认顶级菜单");
-        respNodeVo.setChildren(getTree(list));
+        respNodeVo.setChildren(getTree(list, true));
         result.add(respNodeVo);
         System.out.println(result);
         return result;
     }
 
-    private List<PermissionRespNodeVo> getTree(List<SysPermission> all){
+    /**
+     * flag == true 递归到菜单 反之递归到按钮
+     * @param all
+     * @param flag
+     * @return
+     */
+    private List<PermissionRespNodeVo> getTree(List<SysPermission> all, boolean flag){
         List<PermissionRespNodeVo> list = new ArrayList<>();
         if(all.isEmpty()) return list;
 
@@ -63,8 +72,34 @@ public class PermissionServiceImpl implements PermissionService {
                 PermissionRespNodeVo respNodeVo = new PermissionRespNodeVo();
                 BeanUtils.copyProperties(sysPermission, respNodeVo);
                 respNodeVo.setTitle(sysPermission.getName());
-                respNodeVo.setChildren(getChildExBtn(sysPermission.getId(),all));
+                if (flag == true) {
+                    respNodeVo.setChildren(getChildExBtn(sysPermission.getId(),all));
+                }else{
+                    respNodeVo.setChildren(getChild(sysPermission.getId(),all));
+                }
                 list.add(respNodeVo);
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 递归遍历所有数据
+     * @param id
+     * @param all
+     * @return
+     */
+    private List<PermissionRespNodeVo> getChild(String id,List<SysPermission> all){
+
+        List<PermissionRespNodeVo> list=new ArrayList<>();
+        for (SysPermission s:
+                all) {
+            if(s.getPid().equals(id)){
+                PermissionRespNodeVo respNodeVO=new PermissionRespNodeVo();
+                BeanUtils.copyProperties(s,respNodeVO);
+                respNodeVO.setTitle(s.getName());
+                respNodeVO.setChildren(getChild(s.getId(),all));
+                list.add(respNodeVO);
             }
         }
         return list;
@@ -100,7 +135,7 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public List<PermissionRespNodeVo> permissionTreeList(String userid) {
-        return getTree(sysPermissionMapper.selectAll());
+        return getTree(sysPermissionMapper.selectAll(), true);
     }
 
     private void verifiedParentType(SysPermission sysPermission){

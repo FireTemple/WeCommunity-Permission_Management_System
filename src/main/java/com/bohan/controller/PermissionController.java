@@ -48,4 +48,12 @@ public class PermissionController {
         result.setData(permissionService.addPermission(vo));
         return result;
     }
+
+    @GetMapping("/permission/tree/all")
+    @ApiOperation(value = "菜单权限树接口-递归查询所有")
+    public DataResult<List<PermissionRespNodeVo>> getAllPermissionTree(){
+        DataResult result = DataResult.success();
+        result.setData(permissionService.selectAllTree());
+        return result;
+    }
 }
