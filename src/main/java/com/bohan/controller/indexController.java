@@ -42,5 +42,10 @@ public class indexController {
         return "menus/menu";
     }
 
+    @GetMapping("/roles")
+    @ApiOperation(value = "角色权限管理入口")
+    public String roles(){
+        return "roles/role";
+    }
 
 }

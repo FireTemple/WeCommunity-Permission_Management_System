@@ -1,6 +1,10 @@
 package com.bohan.mapper;
 
+import com.bohan.entity.SysRole;
 import com.bohan.entity.SysUserRole;
+import com.bohan.vo.request.RolePageReqVo;
+
+import java.util.List;
 
 public interface SysUserRoleMapper {
     int deleteByPrimaryKey(String id);
@@ -14,4 +18,5 @@ public interface SysUserRoleMapper {
     int updateByPrimaryKeySelective(SysUserRole record);
 
     int updateByPrimaryKey(SysUserRole record);
+
 }
