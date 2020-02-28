@@ -49,9 +49,17 @@ public class indexController {
     }
 
     @GetMapping("/depts")
-    @ApiOperation(value = "部门管理管理入口")
+    @ApiOperation(value = "部门管理入口")
     public String depts(){
         return "depts/dept";
     }
+
+    @GetMapping("/users")
+    @ApiOperation(value = "用户管理入口")
+    public String users(){
+        return "users/user";
+    }
+
+
 
 }
