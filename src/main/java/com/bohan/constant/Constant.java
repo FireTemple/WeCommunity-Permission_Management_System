@@ -59,4 +59,9 @@ public class Constant {
      * 标记新的access_token
      */
     public static final String JWT_REFRESH_IDENTIFICATION="jwt-refresj-identification_";
+    /**
+     * 用于department 编码
+     */
+    public static final String DEPT_CODE_KEY="dept-code-key_";
+
 }
