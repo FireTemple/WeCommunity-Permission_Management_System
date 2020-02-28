@@ -3,15 +3,19 @@ package com.bohan.controller;
 import com.bohan.constant.Constant;
 import com.bohan.entity.SysUser;
 import com.bohan.exception.code.BaseResponseCode;
+import com.bohan.mapper.SysDeptMapper;
+import com.bohan.service.RedisService;
 import com.bohan.service.UserService;
 import com.bohan.service.impl.UserServiceImpl;
 import com.bohan.utils.DataResult;
 import com.bohan.vo.request.LoginReqVo;
+import com.bohan.vo.request.UserAddReqVo;
 import com.bohan.vo.request.UserPageReqVO;
 import com.bohan.vo.respose.LoginRespVo;
 import com.bohan.vo.respose.PageVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.tomcat.util.bcel.Const;
@@ -30,6 +34,12 @@ public class UserController {
 
     @Autowired
     private UserServiceImpl userService;
+
+    @Autowired
+    private RedisService redisService;
+
+    @Autowired
+    private SysDeptMapper sysDeptMapper;
 
     @PostMapping("/user/login")
     @ApiOperation(value = "登录接口")
@@ -71,6 +81,14 @@ public class UserController {
     public DataResult<PageVo<SysUser>> pageInfo(@RequestBody UserPageReqVO vo){
         DataResult<PageVo<SysUser>> result = DataResult.success();
         result.setData(userService.pageInfo(vo));
+        return result;
+    }
+
+    @PostMapping("/user")
+    @ApiOperation(value = "新增用户")
+    public DataResult ADDuSER(@RequestBody @Valid UserAddReqVo vo){
+        DataResult result = DataResult.success();
+        userService.addUser(vo);
         return result;
     }
 }

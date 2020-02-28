@@ -1,9 +1,11 @@
 package com.bohan.service.impl;
 
 import com.bohan.constant.Constant;
+import com.bohan.entity.SysDept;
 import com.bohan.entity.SysUser;
 import com.bohan.exception.BusinessException;
 import com.bohan.exception.code.BaseResponseCode;
+import com.bohan.mapper.SysDeptMapper;
 import com.bohan.mapper.SysUserMapper;
 import com.bohan.service.RedisService;
 import com.bohan.service.UserService;
@@ -11,6 +13,7 @@ import com.bohan.utils.JwtTokenUtil;
 import com.bohan.utils.PageUtil;
 import com.bohan.utils.PasswordUtils;
 import com.bohan.vo.request.LoginReqVo;
+import com.bohan.vo.request.UserAddReqVo;
 import com.bohan.vo.request.UserPageReqVO;
 import com.bohan.vo.respose.LoginRespVo;
 import com.bohan.vo.respose.PageVo;
@@ -23,10 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -40,6 +40,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RedisService redisService;
+
+    @Autowired
+    private SysDeptMapper sysDeptMapper;
 
     /**
      * 用一个vo登录里面有账号，密码，用户类型
@@ -143,10 +146,29 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public PageVo<SysUser> pageInfo(UserPageReqVO vo) {
-        PageHelper.startPage(vo.getPageNum(), vo.getPageSize());
-        List<SysUser> users = sysUserMapper.selectAll(vo);
-        return PageUtil.getPageVo(users);
+        PageHelper.startPage(vo.getPageNum(),vo.getPageSize());
+        List<SysUser> list= sysUserMapper.selectAll(vo);
+        for (SysUser sysUser:list){
+            SysDept sysDept = sysDeptMapper.selectByPrimaryKey(sysUser.getDeptId());
+            if(sysDept!=null){
+               sysUser.setDeptName(sysDept.getName());
+            }
+        }
+        return PageUtil.getPageVo(list);
     }
 
-
+    @Override
+    public void addUser(UserAddReqVo vo) {
+        SysUser sysUser = new SysUser();
+        BeanUtils.copyProperties(vo, sysUser);
+        sysUser.setId(UUID.randomUUID().toString());
+        sysUser.setCreateTime(new Date());
+        String salt = PasswordUtils.getSalt();
+        String encodedPwd = PasswordUtils.encode(vo.getPassword(), salt);
+        sysUser.setPassword(encodedPwd);
+        int i = sysUserMapper.insertSelective(sysUser);
+        if(i != 1){
+            throw new BusinessException(BaseResponseCode.OPERATION_ERROR);
+        }
+    }
 }
