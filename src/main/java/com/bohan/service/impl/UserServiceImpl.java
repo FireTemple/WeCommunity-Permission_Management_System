@@ -1,5 +1,6 @@
 package com.bohan.service.impl;
 
+import com.bohan.config.TokenSetting;
 import com.bohan.constant.Constant;
 import com.bohan.entity.SysDept;
 import com.bohan.entity.SysUser;
@@ -12,11 +13,10 @@ import com.bohan.service.UserService;
 import com.bohan.utils.JwtTokenUtil;
 import com.bohan.utils.PageUtil;
 import com.bohan.utils.PasswordUtils;
-import com.bohan.vo.request.LoginReqVo;
-import com.bohan.vo.request.UserAddReqVo;
-import com.bohan.vo.request.UserPageReqVO;
+import com.bohan.vo.request.*;
 import com.bohan.vo.respose.LoginRespVo;
 import com.bohan.vo.respose.PageVo;
+import com.bohan.vo.respose.UserOwnRoleRespVo;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
@@ -44,6 +44,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private SysDeptMapper sysDeptMapper;
 
+    @Autowired
+    private UserRoleServiceImpl userRoleService;
+
+    @Autowired
+    private RoleServiceImpl roleService;
+
+    @Autowired
+    private TokenSetting tokenSetting;
     /**
      * 用一个vo登录里面有账号，密码，用户类型
      * 返回的是一个经过验证的账号拥有所有用户信息以及两个Token
@@ -170,5 +178,90 @@ public class UserServiceImpl implements UserService {
         if(i != 1){
             throw new BusinessException(BaseResponseCode.OPERATION_ERROR);
         }
+    }
+
+    @Override
+    public UserOwnRoleRespVo getUserOwnRole(String userId) {
+        UserOwnRoleRespVo respVo = new UserOwnRoleRespVo();
+        respVo.setOwnRoles(userRoleService.getRoleIdsByUserId(userId));
+        respVo.setAllRole(roleService.selectAll());
+        return respVo;
+    }
+
+    @Override
+    public void setUserOwnRole(UserOwnRoleReqVo vo) {
+        /**
+         * 标记用户 要主动刷新
+         */
+        userRoleService.addUserRoleInfo(vo);
+        redisService.set(Constant.JWT_REFRESH_KEY + vo.getUserId(), vo.getUserId(), tokenSetting.getAccessTokenExpireTime().toMillis(), TimeUnit.MILLISECONDS);
+    }
+
+    @Override
+    public String refreshToken(String refreshToken) {
+        //是否刷新
+        //是否加入黑名单
+
+        if(JwtTokenUtil.validateToken(refreshToken) || redisService.hasKey(Constant.JWT_REFRESH_TOKEN_BLACKLIST + refreshToken)){
+            throw new BusinessException(BaseResponseCode.TOKEN_ERROR);
+        }
+
+        String userid = JwtTokenUtil.getUserId(refreshToken);
+        log.info("userid: {}", userid);
+        Map<String, Object> claims = null;
+        if(redisService.hasKey(Constant.JWT_REFRESH_KEY + userid)){
+            claims = new HashMap<>();
+            claims.put(Constant.JWT_PERMISSIONS_KEY,getPermissionByUserId(userid));
+            claims.put(Constant.JWT_ROLES_KEY,getRolesByUserId(userid));
+        }
+        String newAccessToken = JwtTokenUtil.refreshToken(refreshToken, claims);
+
+        if(redisService.hasKey(Constant.JWT_REFRESH_KEY + userid)){
+            redisService.set(Constant.JWT_REFRESH_KEY + userid, newAccessToken, JwtTokenUtil.getRemainingTime(Constant.JWT_REFRESH_KEY + userid),TimeUnit.MILLISECONDS);
+        }
+        System.out.println("刷新完成！！");
+        return newAccessToken;
+    }
+
+    @Override
+    public void updateUserInfo(UserUpdateReqVo vo, String operatorId) {
+        SysUser sysUser = new SysUser();
+        BeanUtils.copyProperties(vo, sysUser);
+        sysUser.setUpdateTime(new Date());
+        sysUser.setUpdateId(operatorId);
+        if(StringUtils.isEmpty(vo.getPassword())){
+            sysUser.setPassword(null);
+        }else{
+            String salt = PasswordUtils.getSalt();
+            String encodePwd = PasswordUtils.encode(vo.getPassword(), salt);
+            sysUser.setSalt(salt);
+            sysUser.setPassword(encodePwd);
+        }
+
+        int i = sysUserMapper.updateByPrimaryKeySelective(sysUser);
+        if(i != 1){
+            throw new BusinessException(BaseResponseCode.OPERATION_ERROR);
+        }
+        if(vo.getStatus() == 2){
+            redisService.set(Constant.ACCOUNT_LOCK_KEY + vo.getId(), vo.getId());
+
+        }else{
+            redisService.delete(Constant.ACCOUNT_LOCK_KEY + vo.getId());
+        }
+    }
+
+    @Override
+    public void deleteUsers(List<String> list, String operationId) {
+        SysUser sysUser = new SysUser();
+        sysUser.setUpdateId(operationId);
+        sysUser.setUpdateTime(new Date());
+        int i = sysUserMapper.deleteUsers(sysUser, list);
+        if(i == 0){
+            throw new BusinessException(BaseResponseCode.OPERATION_ERROR);
+        }
+        for (String userId: list){
+            redisService.set(Constant.DELETED_USER_KEY + userId, userId,tokenSetting.getRefreshTokenExpireAppTime().toMillis(),TimeUnit.MILLISECONDS);
+        }
+
     }
 }

@@ -19,4 +19,9 @@ public interface SysUserRoleMapper {
 
     int updateByPrimaryKey(SysUserRole record);
 
+    List<String> getRoleIdsByUserId(String userId);
+
+    int removeRoleByUserId(String userId);
+
+    int batchInsertUserRole(List<SysUserRole> list);
 }

@@ -8,15 +8,17 @@ import com.bohan.service.RedisService;
 import com.bohan.service.UserService;
 import com.bohan.service.impl.UserServiceImpl;
 import com.bohan.utils.DataResult;
-import com.bohan.vo.request.LoginReqVo;
-import com.bohan.vo.request.UserAddReqVo;
-import com.bohan.vo.request.UserPageReqVO;
+import com.bohan.utils.JwtTokenUtil;
+import com.bohan.vo.request.*;
 import com.bohan.vo.respose.LoginRespVo;
 import com.bohan.vo.respose.PageVo;
+import com.bohan.vo.respose.UserOwnRoleRespVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.tomcat.util.bcel.Const;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -91,4 +94,51 @@ public class UserController {
         userService.addUser(vo);
         return result;
     }
+
+    @GetMapping("/user/roles/{userId}")
+    @ApiOperation(value = "用户拥有的角色数据接口")
+    public DataResult<UserOwnRoleRespVo> getUserOwnRole(@PathVariable("userId") String userId){
+        DataResult result = DataResult.success();
+        result.setData(userService.getUserOwnRole(userId));
+        return result;
+    }
+
+    @PutMapping("/user/roles")
+    @ApiOperation(value = "保持用户拥有的角色信息接口")
+    public DataResult saveUserOwnRole(@RequestBody @Valid UserOwnRoleReqVo vo){
+        DataResult result = DataResult.success();
+        userService.setUserOwnRole(vo);
+        return result;
+    }
+
+    @GetMapping("/user/token")
+    @ApiOperation(value = "Jwt token 刷新接口")
+    public DataResult<String> refreshToken(HttpServletRequest request){
+        String refreshToken = request.getHeader(Constant.REFRESH_TOKEN);
+        String newAccessToken = userService.refreshToken(refreshToken);
+        DataResult result = DataResult.success();
+        result.setData(newAccessToken);
+        return result;
+    }
+
+    @PutMapping("/user")
+    @ApiOperation(value = "更新用户接口")
+    public DataResult updateUserInfo(@RequestBody @Valid UserUpdateReqVo vo, HttpServletRequest request){
+        String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
+        String curUserId = JwtTokenUtil.getUserId(accessToken);
+        userService.updateUserInfo(vo,curUserId);
+        DataResult result = DataResult.success();
+        return result;
+    }
+
+    @DeleteMapping("user")
+    @ApiOperation(value = "批量删除用户接口")
+    public DataResult deleteUsers(@RequestBody @ApiParam(value = "用户Id集合") List<String> list, HttpServletRequest request){
+        String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
+        String curUserId = JwtTokenUtil.getUserId(accessToken);
+        userService.deleteUsers(list, curUserId);
+        DataResult result = DataResult.success();
+        return result;
+    }
+
 }

@@ -44,6 +44,7 @@ var CoreUtil = (function () {
                         CoreUtil.sendAjax("/api/user/token",null,function (res) {
                             if(res.code==0){
                                 CoreUtil.setData("access_token",res.data);
+                                console.log("token刷新成功")
                                 /*刷新成功后继续重复请求*/
                                 CoreUtil.sendAjax(reUrl,reParams,reFt,reMethod,reHeaders,reNoAuthorityFt,reContentType,reAsync);
                             }else {

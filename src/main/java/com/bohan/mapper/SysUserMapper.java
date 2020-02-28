@@ -27,4 +27,6 @@ public interface SysUserMapper {
 
     //根据部门id集合查找用户
     List<SysUser> selectUserInfoByDeptIds (List<String> deptIds);
+
+    int deleteUsers(@Param("sysUser")SysUser sysUser, @Param("list") List<String> list);
 }
