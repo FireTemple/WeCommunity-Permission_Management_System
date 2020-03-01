@@ -209,4 +209,10 @@
     and deleted=1
     order by order_num DESC
   </select>
+
+  <delete id="removeByPermissionId">
+    delete
+    from sys_role_permission
+    where permission_id = #{permissionId}
+  </delete>
 </mapper>

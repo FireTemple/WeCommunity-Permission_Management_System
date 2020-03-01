@@ -6,14 +6,12 @@ import com.bohan.utils.DataResult;
 import com.bohan.vo.request.AddRoleReqVo;
 import com.bohan.vo.request.RolePageReqVo;
 import com.bohan.vo.request.RolePermissionOperationReqVo;
+import com.bohan.vo.request.RoleUpdateReqVo;
 import com.bohan.vo.respose.PageVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.xml.crypto.Data;
@@ -40,5 +38,29 @@ public class RoleController {
         DataResult result = DataResult.success();
         result.setData(roleService.addRole(vo));
         return result;
+    }
+
+
+    @GetMapping("/role/{id}")
+    @ApiOperation(value = "获取用户详情")
+    public DataResult detailInfo(@PathVariable("id") String id){
+        DataResult result = DataResult.success();
+        result.setData(roleService.detailInfo(id));
+        return result;
+    }
+
+    @PutMapping("/role")
+    @ApiOperation(value = "更新角色信息接口")
+    public DataResult updateRole(@RequestBody @Valid RoleUpdateReqVo vo){
+        DataResult result = DataResult.success();
+        roleService.updateRole(vo);
+        return result;
+    }
+
+    @DeleteMapping("/role/{id}")
+    @ApiOperation(value = "删除用户接口")
+    public DataResult deleteRole(@PathVariable("id")  String id){
+        roleService.deleteRole(id);
+        return DataResult.success();
     }
 }

@@ -3,8 +3,10 @@ package com.bohan.controller;
 
 import com.bohan.entity.SysPermission;
 import com.bohan.service.PermissionService;
+import com.bohan.service.impl.PermissionServiceImpl;
 import com.bohan.utils.DataResult;
 import com.bohan.vo.request.PermissionAddReqVO;
+import com.bohan.vo.request.PermissionUpdateReqVo;
 import com.bohan.vo.respose.PermissionRespNodeVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,7 +24,7 @@ import java.util.List;
 public class PermissionController {
 
     @Autowired
-    private PermissionService permissionService;
+    private PermissionServiceImpl permissionService;
 
 
     @GetMapping("/permissions")
@@ -54,6 +56,22 @@ public class PermissionController {
     public DataResult<List<PermissionRespNodeVo>> getAllPermissionTree(){
         DataResult result = DataResult.success();
         result.setData(permissionService.selectAllTree());
+        return result;
+    }
+
+    @PutMapping("/permission/")
+    @ApiOperation(value = "编辑菜单权限接口")
+    public DataResult updatePermission(@RequestBody @Valid PermissionUpdateReqVo vo){
+        permissionService.updatePermission(vo);
+        DataResult result = DataResult.success();
+        return result;
+    }
+
+    @DeleteMapping("/permission/{permissionId}")
+    @ApiOperation(value = "删除菜单权限接口")
+    public DataResult removePermission(@PathVariable("permissionId") String permissionId){
+        DataResult result = DataResult.success();
+        permissionService.deletePermission(permissionId);
         return result;
     }
 }

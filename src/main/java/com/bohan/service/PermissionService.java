@@ -2,6 +2,7 @@ package com.bohan.service;
 
 import com.bohan.entity.SysPermission;
 import com.bohan.vo.request.PermissionAddReqVO;
+import com.bohan.vo.request.PermissionUpdateReqVo;
 import com.bohan.vo.respose.PermissionRespNodeVo;
 
 import java.util.List;
@@ -12,5 +13,6 @@ public interface PermissionService {
     SysPermission addPermission(PermissionAddReqVO vo);
     List<PermissionRespNodeVo> permissionTreeList(String userid);
     List<PermissionRespNodeVo> selectAllTree();
-
+    void updatePermission(PermissionUpdateReqVo vo);
+    void deletePermission(String permissionId);
 }

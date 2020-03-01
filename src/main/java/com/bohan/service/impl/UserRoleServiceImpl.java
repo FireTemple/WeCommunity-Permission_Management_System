@@ -50,4 +50,19 @@ public class UserRoleServiceImpl implements UserRoleService {
             throw new BusinessException(BaseResponseCode.OPERATION_ERROR);
         }
     }
+
+    @Override
+    public List<String> getUserIdsByRoleIds(List<String> roleIds) {
+        return sysUserRoleMapper.getUserIdsByRoleIds(roleIds);
+    }
+
+    @Override
+    public List<String> getUserIdsByRoleId(String roleId) {
+        return sysUserRoleMapper.getUserIdsByRoleId(roleId);
+    }
+
+    @Override
+    public int removeUserRoleId(String roleId) {
+        return sysUserRoleMapper.removeUserRoleId(roleId);
+    }
 }

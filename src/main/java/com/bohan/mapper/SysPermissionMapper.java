@@ -21,4 +21,6 @@ public interface SysPermissionMapper {
 
     List<SysPermission> selectChild(String permissionId);
     List<SysPermission> selectInfoByIds (List<String> ids);
+
+
 }

@@ -44,4 +44,26 @@ public class RolePermissionServiceImpl implements RolePermissionService {
 
 
     }
+
+    @Override
+    public List<String> getRoleIdsByPermissionId(String permissionId) {
+        return sysRolePermissionMapper.getRoleIdByPermissionId(permissionId);
+    }
+
+    @Override
+    public int removeRoleByPermissionId(String permissionId) {
+        return sysRolePermissionMapper.removeByPermissionId(permissionId);
+    }
+
+    @Override
+    public List<String> getPermissionByRoleId(String roleId) {
+        return sysRolePermissionMapper.getPermissionIdsByRoleId(roleId);
+    }
+
+    @Override
+    public int removeByRoleId(String roleId) {
+        return sysRolePermissionMapper.removeByRoleId(roleId);
+    }
+
+
 }

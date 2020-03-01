@@ -96,6 +96,7 @@
     insert into sys_user_role(
     id,
     user_id,
+
     role_id,
     create_time
     )
@@ -109,5 +110,26 @@
       )
     </foreach>
   </insert>
+
+  <select id="getUserIdsByRoleIds" resultType="java.lang.String">
+    select user_id
+    from sys_user_role
+    where role_id in
+    <foreach collection="list" item="item" open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+  </select>
+  
+  <select id="getUserIdsByRoleId" resultType="java.lang.String">
+    select user_id
+    from sys_user_role
+    where role_id = #{roleId}
+  </select>
+
+  <delete id="removeUserRoleId">
+    delete
+    from sys_user_role
+    where role_id = #{roleId}
+  </delete>
 
 </mapper>

@@ -99,4 +99,28 @@
     </foreach>
 
   </insert>
+
+  <select id="getRoleIdByPermissionId" resultType="java.lang.String">
+    select role_id
+    from sys_role_permission
+    where permission_id = #{permissionId}
+  </select>
+
+  <delete id="removeByPermissionId">
+    delete
+    from sys_role_permission
+    where permission_id = #{permissionId}
+  </delete>
+
+  <select id="getPermissionIdsByRoleId" resultType="java.lang.String">
+      select permission_id
+      from sys_role_permission
+      where role_id = #{roleId}
+  </select>
+
+  <delete id="removeByRoleId" >
+    delete
+    from sys_role_permission
+    where role_id = #{roleId}
+  </delete>
 </mapper>

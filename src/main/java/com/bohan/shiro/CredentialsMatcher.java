@@ -49,14 +49,15 @@ public class CredentialsMatcher extends HashedCredentialsMatcher {
         /**
          * 下面这个逻辑验证有点绕...还没搞明白
          */
-        if(redisService.hasKey(Constant.JWT_REFRESH_KEY+userId)&&redisService.getExpire(Constant.JWT_REFRESH_KEY+userId, TimeUnit.MILLISECONDS)>JwtTokenUtil.getRemainingTime(accessToken)){
-            /**
-             * 是否存在刷新的标识
-             */
-            if(!redisService.hasKey(Constant.JWT_REFRESH_IDENTIFICATION+accessToken)){
-                throw new BusinessException(BaseResponseCode.TOKEN_PAST_DUE);
-            }
+        if(redisService.hasKey(Constant.JWT_REFRESH_KEY+userId)){
+        /**
+         * 通过剩余的过期时间比较如果token的剩余过期时间大与标记key的剩余过期时间
+         * 就说明这个tokne是在这个标记key之后生成的
+         */
+        if(redisService.getExpire(Constant.JWT_REFRESH_KEY+userId, TimeUnit.MILLISECONDS)>JwtTokenUtil.getRemainingTime(accessToken)){
+            throw new BusinessException(BaseResponseCode.TOKEN_PAST_DUE);
         }
+    }
         return true;
     }
 }

@@ -23,4 +23,7 @@ public class PermissionRespNodeVo {
 
     @ApiModelProperty(value = "默认开启展开")
     private boolean spread = true;
+
+    @ApiModelProperty(value = "节点是否被选中")
+    private boolean checked;
 }

@@ -4,7 +4,7 @@ import com.bohan.entity.SysRolePermission;
 
 import java.util.List;
 
-public interface SysRolePermissionMapper {
+public interface  SysRolePermissionMapper {
     int deleteByPrimaryKey(String id);
 
     int insert(SysRolePermission record);
@@ -18,4 +18,12 @@ public interface SysRolePermissionMapper {
     int updateByPrimaryKey(SysRolePermission record);
 
     int batchInsertRolePermission(List<SysRolePermission> list);
+
+    List<String> getRoleIdByPermissionId(String permissionId);
+
+    int removeByPermissionId(String permissionId);
+
+    List<String> getPermissionIdsByRoleId(String roleId);
+
+    int removeByRoleId(String roleId);
 }
