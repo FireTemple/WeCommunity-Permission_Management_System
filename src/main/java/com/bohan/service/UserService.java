@@ -29,4 +29,11 @@ public interface UserService {
     void deleteUsers(List<String> list, String operationId);
 
     List<SysUser> selectUserInfoByDeptIds(List<String> deptIds);
+
+    SysUser detailInfo(String userId);
+
+    void userUpdateDetailInfo(UserUpdateDetailInfoReqVo vo, String userId);
+
+    void userUpdatePwd(UserUpdatePwdReqVo vo, String accessToken, String refreshToken);
+
 }

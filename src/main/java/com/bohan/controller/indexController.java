@@ -65,4 +65,16 @@ public class indexController {
     public String logs(){
         return "logs/log";
     }
+
+    @GetMapping("/users/info")
+    @ApiOperation(value = "跳转个人页面")
+    public String usersInfo(){
+        return "users/user_edit";
+    }
+
+    @GetMapping("/users/pwd")
+    @ApiOperation(value = "跳转密码管理页面")
+    public String usersPwd(){
+        return "users/user_pwd";
+    }
 }

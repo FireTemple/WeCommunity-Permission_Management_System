@@ -14,6 +14,7 @@ import com.bohan.vo.request.*;
 import com.bohan.vo.respose.LoginRespVo;
 import com.bohan.vo.respose.PageVo;
 import com.bohan.vo.respose.UserOwnRoleRespVo;
+import io.jsonwebtoken.Jwt;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -47,7 +48,6 @@ public class UserController {
 
     @PostMapping("/user/login")
     @ApiOperation(value = "登录接口")
-    @MyLog(title = "组织管理-用户管理", action = "登录接口")
     public DataResult<LoginRespVo> login(@RequestBody @Valid LoginReqVo vo){
         DataResult result = DataResult.success();
         System.out.println("userService" + userService);
@@ -58,7 +58,6 @@ public class UserController {
 
     @GetMapping("/user/logout")
     @ApiOperation(value = "用户登出接口")
-    @MyLog(title = "组织管理-用户管理", action = "用户登出接口")
     public DataResult logout(HttpServletRequest request){
         String accessToken = null;
         String refreshToken = null;
@@ -76,7 +75,6 @@ public class UserController {
 
     @GetMapping("/user/unLogin")
     @ApiOperation(value = "引导客户端去登录")
-    @MyLog(title = "组织管理-用户管理", action = "引导客户端去登录")
     public DataResult unLogin(){
         DataResult result= DataResult.getResult(BaseResponseCode.TOKEN_ERROR);
         return result;
@@ -84,7 +82,6 @@ public class UserController {
 
     @PostMapping("/users")
     @ApiOperation(value = "分页获取用户列表接口")
-    @MyLog(title = "组织管理-用户管理", action = "分页获取用户列表接口")
 //    @RequiresPermissions("sys:user:list")
     public DataResult<PageVo<SysUser>> pageInfo(@RequestBody UserPageReqVO vo){
         DataResult<PageVo<SysUser>> result = DataResult.success();
@@ -152,6 +149,36 @@ public class UserController {
         return result;
     }
 
+    @GetMapping("/user/info")
+    @ApiOperation(value = "用户详情查询接口")
+    @MyLog(title = "组织管理-用户管理", action = "用户详情查询接口")
+    public DataResult<SysUser> detailInfo(HttpServletRequest request){
+        String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
+        String userId = JwtTokenUtil.getUserId(accessToken);
+        DataResult result = DataResult.success();
+        result.setData(userService.detailInfo(userId));
+        return result;
+    }
+
+    @PutMapping("/user/info")
+    @ApiOperation(value = "保存个人信息接口")
+    @MyLog(title = "组织管理-用户管理", action = "保存个人信息接口")
+    public DataResult saveUserInfo(@RequestBody UserUpdateDetailInfoReqVo vo, HttpServletRequest request){
+        String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
+        String userId = JwtTokenUtil.getUserId(accessToken);
+        userService.userUpdateDetailInfo(vo, userId);
+        DataResult result = DataResult.success();
+        return result;
+
+    }
 
 
+    @PutMapping("/user/pwd")
+    @ApiOperation(value = "修改个人密码")
+    public DataResult updatePwd(@RequestBody @Valid UserUpdatePwdReqVo vo, HttpServletRequest request){
+        String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
+        String refreshToken = request.getHeader(Constant.REFRESH_TOKEN);
+        userService.userUpdatePwd(vo, accessToken, refreshToken);
+        return DataResult.success();
+    }
 }

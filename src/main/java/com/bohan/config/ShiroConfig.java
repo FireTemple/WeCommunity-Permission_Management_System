@@ -65,13 +65,11 @@ public class ShiroConfig {
          * 配置不会被拦截的链接
          */
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-
         filterChainDefinitionMap.put("/api/user/login", "anon");
         filterChainDefinitionMap.put("/index/**","anon");
         filterChainDefinitionMap.put("/images/**", "anon");
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/layui/**", "anon");
-        filterChainDefinitionMap.put("/treetable-lay/**", "anon");
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/treetable-lay/**", "anon");
         filterChainDefinitionMap.put("/api/user/token", "anon");
