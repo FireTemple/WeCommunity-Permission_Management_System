@@ -264,4 +264,9 @@ public class UserServiceImpl implements UserService {
         }
 
     }
+
+    @Override
+    public List<SysUser> selectUserInfoByDeptIds(List<String> deptIds) {
+        return sysUserMapper.selectUserInfoByDeptIds(deptIds);
+    }
 }

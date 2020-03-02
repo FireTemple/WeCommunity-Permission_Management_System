@@ -5,6 +5,7 @@ import com.bohan.entity.SysDept;
 import com.bohan.service.impl.DeptServiceImpl;
 import com.bohan.utils.DataResult;
 import com.bohan.vo.request.DeptAddReqVo;
+import com.bohan.vo.request.DeptUpdateReqVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,10 +31,10 @@ public class DeptController {
     }
 
     @GetMapping("/dept/tree")
-    @ApiOperation(value = "查询所有部门接口")
-    public DataResult<List<SysDept>> getDeptTree(){
+    @ApiOperation(value = "部门树型结构列表接口")
+    public DataResult<List<SysDept>> getDeptTree(@RequestParam(required = false) String deptId){
         DataResult result = DataResult.success();
-        result.setData(deptService.deptTreeList());
+        result.setData(deptService.deptTreeList(deptId));
         return result;
     }
 
@@ -45,4 +46,17 @@ public class DeptController {
         return result;
     }
 
+    @PutMapping("/dept")
+    @ApiOperation(value = "更新部门数据接口")
+    public DataResult updateDept(@RequestBody @Valid DeptUpdateReqVo vo){
+        deptService.updateDept(vo);
+        return DataResult.success();
+    }
+
+    @DeleteMapping("/dept/{id}")
+    @ApiOperation(value = "删除部门数据接口")
+    public DataResult deleteDept(@PathVariable("id") String id){
+        deptService.deleteDept(id);
+        return DataResult.success();
+    }
 }

@@ -27,4 +27,6 @@ public interface UserService {
     void updateUserInfo(UserUpdateReqVo vo, String operatorId);
 
     void deleteUsers(List<String> list, String operationId);
+
+    List<SysUser> selectUserInfoByDeptIds(List<String> deptIds);
 }

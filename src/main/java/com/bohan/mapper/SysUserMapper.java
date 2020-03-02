@@ -23,10 +23,11 @@ public interface SysUserMapper {
 
     List<SysUser> selectAll(UserPageReqVO vo);
 
-    int deletedUsers(@Param("sysUser") SysUser sysUser, @Param("list") List<String> list);
+//    int deletedUsers(@Param("sysUser") SysUser sysUser, @Param("list") List<String> list);
 
     //根据部门id集合查找用户
-    List<SysUser> selectUserInfoByDeptIds (List<String> deptIds);
+    List<SysUser> selectUserInfoByDeptIds(List<String> deptIds);
 
     int deleteUsers(@Param("sysUser")SysUser sysUser, @Param("list") List<String> list);
+
 }
