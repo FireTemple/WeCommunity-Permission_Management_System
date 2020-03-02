@@ -1,5 +1,6 @@
 package com.bohan.controller;
 
+import com.bohan.aop.annotation.MyLog;
 import com.bohan.constant.Constant;
 import com.bohan.entity.SysUser;
 import com.bohan.exception.code.BaseResponseCode;
@@ -30,7 +31,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@Api(tags = "user 相关接口")
+@Api(tags = "组织管理-用户管理",description = "用户管理相关模块")
 @Slf4j
 public class UserController {
 
@@ -46,6 +47,7 @@ public class UserController {
 
     @PostMapping("/user/login")
     @ApiOperation(value = "登录接口")
+    @MyLog(title = "组织管理-用户管理", action = "登录接口")
     public DataResult<LoginRespVo> login(@RequestBody @Valid LoginReqVo vo){
         DataResult result = DataResult.success();
         System.out.println("userService" + userService);
@@ -56,6 +58,7 @@ public class UserController {
 
     @GetMapping("/user/logout")
     @ApiOperation(value = "用户登出接口")
+    @MyLog(title = "组织管理-用户管理", action = "用户登出接口")
     public DataResult logout(HttpServletRequest request){
         String accessToken = null;
         String refreshToken = null;
@@ -73,6 +76,7 @@ public class UserController {
 
     @GetMapping("/user/unLogin")
     @ApiOperation(value = "引导客户端去登录")
+    @MyLog(title = "组织管理-用户管理", action = "引导客户端去登录")
     public DataResult unLogin(){
         DataResult result= DataResult.getResult(BaseResponseCode.TOKEN_ERROR);
         return result;
@@ -80,6 +84,7 @@ public class UserController {
 
     @PostMapping("/users")
     @ApiOperation(value = "分页获取用户列表接口")
+    @MyLog(title = "组织管理-用户管理", action = "分页获取用户列表接口")
 //    @RequiresPermissions("sys:user:list")
     public DataResult<PageVo<SysUser>> pageInfo(@RequestBody UserPageReqVO vo){
         DataResult<PageVo<SysUser>> result = DataResult.success();
@@ -89,6 +94,7 @@ public class UserController {
 
     @PostMapping("/user")
     @ApiOperation(value = "新增用户")
+    @MyLog(title = "组织管理-用户管理", action = "新增用户")
     public DataResult ADDuSER(@RequestBody @Valid UserAddReqVo vo){
         DataResult result = DataResult.success();
         userService.addUser(vo);
@@ -97,6 +103,7 @@ public class UserController {
 
     @GetMapping("/user/roles/{userId}")
     @ApiOperation(value = "用户拥有的角色数据接口")
+    @MyLog(title = "组织管理-用户管理", action = "用户拥有的角色数据接口")
     public DataResult<UserOwnRoleRespVo> getUserOwnRole(@PathVariable("userId") String userId){
         DataResult result = DataResult.success();
         result.setData(userService.getUserOwnRole(userId));
@@ -105,6 +112,7 @@ public class UserController {
 
     @PutMapping("/user/roles")
     @ApiOperation(value = "保持用户拥有的角色信息接口")
+    @MyLog(title = "组织管理-用户管理", action = "保持用户拥有的角色信息接口")
     public DataResult saveUserOwnRole(@RequestBody @Valid UserOwnRoleReqVo vo){
         DataResult result = DataResult.success();
         userService.setUserOwnRole(vo);
@@ -113,6 +121,7 @@ public class UserController {
 
     @GetMapping("/user/token")
     @ApiOperation(value = "Jwt token 刷新接口")
+    @MyLog(title = "组织管理-用户管理", action = "Jwt token 刷新接口")
     public DataResult<String> refreshToken(HttpServletRequest request){
         String refreshToken = request.getHeader(Constant.REFRESH_TOKEN);
         String newAccessToken = userService.refreshToken(refreshToken);
@@ -123,6 +132,7 @@ public class UserController {
 
     @PutMapping("/user")
     @ApiOperation(value = "更新用户接口")
+    @MyLog(title = "组织管理-用户管理", action = "更新用户接口")
     public DataResult updateUserInfo(@RequestBody @Valid UserUpdateReqVo vo, HttpServletRequest request){
         String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
         String curUserId = JwtTokenUtil.getUserId(accessToken);
@@ -133,6 +143,7 @@ public class UserController {
 
     @DeleteMapping("user")
     @ApiOperation(value = "批量删除用户接口")
+    @MyLog(title = "组织管理-用户管理", action = "批量删除用户接口")
     public DataResult deleteUsers(@RequestBody @ApiParam(value = "用户Id集合") List<String> list, HttpServletRequest request){
         String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
         String curUserId = JwtTokenUtil.getUserId(accessToken);

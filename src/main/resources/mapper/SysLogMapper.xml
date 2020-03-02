@@ -138,4 +138,34 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="com.bohan.vo.request.SysLogPageReqVo">
+    select <include refid="Base_Column_List"></include>
+    from sys_log
+    <where>
+      <if test="username !=null and username !=''">
+        and username like concat('%',#{username},'%')
+      </if>
+      <if test="userId !=null and userId !=''">
+        and user_id=#{userId}
+      </if>
+      <if test="operation !=null and operation !=''">
+        and operation like concat('%',#{operation},'%')
+      </if>
+      <if test="startTime !=null and startTime !=''">
+        and create_time &gt;= #{startTime}
+      </if>
+      <if test="endTime !=null and endTime !=''">
+        and create_time &lt;= #{endTime}
+      </if>
+    </where>
+  </select>
+
+  <delete id="batchDeleteLog">
+    delete
+    from sys_log
+    where id in
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
 </mapper>

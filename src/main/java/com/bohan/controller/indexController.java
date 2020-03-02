@@ -60,6 +60,9 @@ public class indexController {
         return "users/user";
     }
 
-
-
+    @GetMapping("/log")
+    @ApiOperation(value = "日志管理入口")
+    public String logs(){
+        return "logs/log";
+    }
 }

@@ -1,6 +1,7 @@
 package com.bohan.controller;
 
 
+import com.bohan.aop.annotation.MyLog;
 import com.bohan.entity.SysDept;
 import com.bohan.service.impl.DeptServiceImpl;
 import com.bohan.utils.DataResult;
@@ -24,6 +25,7 @@ public class DeptController {
 
     @GetMapping("/depts")
     @ApiOperation(value = "查询所有部门接口")
+    @MyLog(title = "组织部门-部门管理", action = "查询所有部门接口")
     public DataResult<List<SysDept>> getAllDepts(){
         DataResult result = DataResult.success();
         result.setData(deptService.selectAll());
@@ -32,6 +34,7 @@ public class DeptController {
 
     @GetMapping("/dept/tree")
     @ApiOperation(value = "部门树型结构列表接口")
+    @MyLog(title = "组织部门-部门管理", action = "部门树型结构列表接口")
     public DataResult<List<SysDept>> getDeptTree(@RequestParam(required = false) String deptId){
         DataResult result = DataResult.success();
         result.setData(deptService.deptTreeList(deptId));
@@ -40,6 +43,7 @@ public class DeptController {
 
     @PostMapping("/dept")
     @ApiOperation(value = "新增部门数据接口")
+    @MyLog(title = "组织部门-部门管理", action = "新增部门数据接口")
     public DataResult<SysDept> addDept(@RequestBody @Valid DeptAddReqVo vo){
         DataResult result = DataResult.success();
         result.setData(deptService.addDept(vo));
@@ -48,6 +52,7 @@ public class DeptController {
 
     @PutMapping("/dept")
     @ApiOperation(value = "更新部门数据接口")
+    @MyLog(title = "组织部门-部门管理", action = "更新部门数据接口")
     public DataResult updateDept(@RequestBody @Valid DeptUpdateReqVo vo){
         deptService.updateDept(vo);
         return DataResult.success();
@@ -55,6 +60,7 @@ public class DeptController {
 
     @DeleteMapping("/dept/{id}")
     @ApiOperation(value = "删除部门数据接口")
+    @MyLog(title = "组织部门-部门管理", action = "删除部门数据接口")
     public DataResult deleteDept(@PathVariable("id") String id){
         deptService.deleteDept(id);
         return DataResult.success();

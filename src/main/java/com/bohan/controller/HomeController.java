@@ -1,6 +1,7 @@
 package com.bohan.controller;
 
 
+import com.bohan.aop.annotation.MyLog;
 import com.bohan.constant.Constant;
 import com.bohan.service.HomeService;
 import com.bohan.utils.DataResult;
@@ -24,6 +25,7 @@ public class HomeController {
 
     @GetMapping("/home")
     @ApiOperation(value = "获取首页数据")
+    @MyLog(title = "home page", action = "获取首页数据")
     public DataResult<HomeRespVo> getHome(HttpServletRequest request){
         String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
         String refreshToken = request.getHeader(Constant.REFRESH_TOKEN);
