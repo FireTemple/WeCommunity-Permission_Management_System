@@ -145,7 +145,7 @@ public class RoleServiceImpl implements RoleService {
         if(!userIdsByRoleId.isEmpty()){
             for (String userId: userIdsByRoleId){
                 redisService.set(Constant.JWT_REFRESH_KEY + userId, userId,tokenSetting.getAccessTokenExpireTime().toMillis(), TimeUnit.MILLISECONDS);
-
+                redisService.delete(Constant.IDENTIFY_CACHE_KEY+ userId);
             }
         }
     }
@@ -170,8 +170,30 @@ public class RoleServiceImpl implements RoleService {
         if(!userIdsByRoleId.isEmpty()){
             for(String userId : userIdsByRoleId){
                 redisService.set(Constant.JWT_REFRESH_KEY + userId, userId, tokenSetting.getAccessTokenExpireTime().toMillis(),TimeUnit.MILLISECONDS);
+                redisService.delete(Constant.IDENTIFY_CACHE_KEY+ userId);
+
             }
         }
 
+    }
+
+    @Override
+    public List<String> getRoleNames(String userId) {
+        List<SysRole> sysRoles = getRoleInfoByUserId(userId);
+        if(null == sysRoles || sysRoles.isEmpty()) return null;
+        List<String> list = new ArrayList<>();
+        for (SysRole sysRole : sysRoles){
+            list.add(sysRole.getName());
+        }
+        return list;
+    }
+
+    @Override
+    public List<SysRole> getRoleInfoByUserId(String userId) {
+        List<String> roleIds = userRoleService.getRoleIdsByUserId(userId);
+        if (roleIds.isEmpty()){
+            return null;
+        }
+        return sysRoleMapper.getRoleInfoByIds(roleIds);
     }
 }

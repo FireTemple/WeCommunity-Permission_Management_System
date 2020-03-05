@@ -1,6 +1,7 @@
 package com.bohan.config;
 
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.bohan.shiro.CredentialsMatcher;
 import com.bohan.shiro.CustomAccessControlerFilter;
 import com.bohan.shiro.CustomRealm;
@@ -112,4 +113,10 @@ public class ShiroConfig {
         defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
         return defaultAdvisorAutoProxyCreator;
     }
+
+    @Bean
+    public ShiroDialect shiroDialect(){
+        return new ShiroDialect();
+    }
+
 }

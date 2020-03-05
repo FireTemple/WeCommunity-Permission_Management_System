@@ -4,6 +4,7 @@ package com.bohan.controller;
 import com.bohan.aop.annotation.MyLog;
 import com.bohan.constant.Constant;
 import com.bohan.service.HomeService;
+import com.bohan.service.impl.HomeServiceImpl;
 import com.bohan.utils.DataResult;
 import com.bohan.utils.JwtTokenUtil;
 import com.bohan.vo.respose.HomeRespVo;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 @Api(tags = "home page", description = "首页相关模块")
 public class HomeController {
     @Autowired
-    private HomeService homeService;
+    private HomeServiceImpl homeService;
 
     @GetMapping("/home")
     @ApiOperation(value = "获取首页数据")

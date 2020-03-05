@@ -10,6 +10,7 @@ import com.bohan.vo.respose.PageVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,7 @@ public class LogController {
 
     @PostMapping("/logs")
     @ApiOperation(value = "分页查找操作日志接口")
+    @RequiresPermissions("sys:log:list")
     public DataResult<PageVo<SysLog>> pageInfo(@RequestBody SysLogPageReqVo vo){
         PageVo<SysLog> sysLogPageVo = logService.pageInfo(vo);
         DataResult result = DataResult.success();
@@ -35,6 +37,7 @@ public class LogController {
     @DeleteMapping("/log")
     @ApiOperation(value = "删除日志接口")
     @MyLog(title = "系统管理-日志管理", action = "删除日志接口")
+    @RequiresPermissions("sys:log:delete")
     public DataResult deleteLog(@RequestBody @ApiParam(value = "删除的日志ID集合") List<String> logIds){
         DataResult result = DataResult.success();
         logService.deleteLog(logIds);

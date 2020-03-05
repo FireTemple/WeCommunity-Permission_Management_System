@@ -8,6 +8,7 @@ import com.bohan.exception.BusinessException;
 import com.bohan.exception.code.BaseResponseCode;
 import com.bohan.mapper.SysDeptMapper;
 import com.bohan.mapper.SysUserMapper;
+import com.bohan.service.PermissionService;
 import com.bohan.service.RedisService;
 import com.bohan.service.UserService;
 import com.bohan.utils.JwtTokenUtil;
@@ -52,6 +53,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private TokenSetting tokenSetting;
+
+    @Autowired
+    private PermissionServiceImpl permissionService;
     /**
      * 用一个vo登录里面有账号，密码，用户类型
      * 返回的是一个经过验证的账号拥有所有用户信息以及两个Token
@@ -116,9 +120,11 @@ public class UserServiceImpl implements UserService {
             subject.logout();
         }
         String userId = JwtTokenUtil.getUserId(accessToken);
-        System.out.println("key: " + Constant.JWT_ACCESS_TOKEN_BLACKLIST + accessToken);
+//        System.out.println("key: " + Constant.JWT_ACCESS_TOKEN_BLACKLIST + accessToken);
         redisService.set(Constant.JWT_ACCESS_TOKEN_BLACKLIST + accessToken,userId,JwtTokenUtil.getRemainingTime(accessToken), TimeUnit.MILLISECONDS);
         redisService.set(Constant.JWT_REFRESH_TOKEN_BLACKLIST + refreshToken,userId,JwtTokenUtil.getRemainingTime(refreshToken),TimeUnit.MILLISECONDS);
+        redisService.delete(Constant.IDENTIFY_CACHE_KEY+ userId);
+
     }
 
     /**
@@ -128,28 +134,12 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     private List<String> getRolesByUserId(String userid){
-        List<String> roles = new ArrayList<>();
-
-        if("9a26f5f1-cbd2-473d-82db-1d6dcf4598f8".equals(userid)){
-            roles.add("admin");
-        }else{
-            roles.add("test");
-        }
-        return roles;
+        return roleService.getRoleNames(userid);
     }
 
-    private List<String> getPermissionByUserId(String userid){
-        List<String> permissions = new ArrayList<>();
+    private Set<String> getPermissionByUserId(String userid){
 
-        if("9a26f5f1-cbd2-473d-82db-1d6dcf4598f8".equals(userid)){
-            permissions.add("sys:user:add");
-            permissions.add("sys:user:list");
-            permissions.add("sys:user:update");
-            permissions.add("sys:user:detail");
-        }else{
-            permissions.add("sys:user:detail");
-        }
-        return permissions;
+        return permissionService.getPermissionByUserId(userid);
     }
 
     @Override
@@ -195,6 +185,8 @@ public class UserServiceImpl implements UserService {
          */
         userRoleService.addUserRoleInfo(vo);
         redisService.set(Constant.JWT_REFRESH_KEY + vo.getUserId(), vo.getUserId(), tokenSetting.getAccessTokenExpireTime().toMillis(), TimeUnit.MILLISECONDS);
+        redisService.delete(Constant.IDENTIFY_CACHE_KEY+ vo.getUserId());
+
     }
 
     @Override
@@ -261,6 +253,8 @@ public class UserServiceImpl implements UserService {
         }
         for (String userId: list){
             redisService.set(Constant.DELETED_USER_KEY + userId, userId,tokenSetting.getRefreshTokenExpireAppTime().toMillis(),TimeUnit.MILLISECONDS);
+            redisService.delete(Constant.IDENTIFY_CACHE_KEY+ userId);
+
         }
 
     }
@@ -311,5 +305,7 @@ public class UserServiceImpl implements UserService {
         }
         redisService.set(Constant.JWT_ACCESS_TOKEN_BLACKLIST + accessToken,userId,JwtTokenUtil.getRemainingTime(accessToken), TimeUnit.MILLISECONDS);
         redisService.set(Constant.JWT_REFRESH_TOKEN_BLACKLIST + refreshToken,userId,JwtTokenUtil.getRemainingTime(refreshToken),TimeUnit.MILLISECONDS);
+        redisService.delete(Constant.IDENTIFY_CACHE_KEY+ userId);
+
     }
 }

@@ -18,10 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -84,7 +81,7 @@ public class PermissionServiceImpl implements PermissionService {
      */
     private List<PermissionRespNodeVo> getTree(List<SysPermission> all, boolean flag){
         List<PermissionRespNodeVo> list = new ArrayList<>();
-        if(all.isEmpty()) return list;
+        if(all == null || all.isEmpty()) return list;
 
         for(SysPermission sysPermission : all){
             if(sysPermission.getPid().equals("0")){
@@ -154,7 +151,8 @@ public class PermissionServiceImpl implements PermissionService {
 
     @Override
     public List<PermissionRespNodeVo> permissionTreeList(String userid) {
-        return getTree(sysPermissionMapper.selectAll(), true);
+        List<SysPermission> list = getPermission(userid);
+        return getTree(list, true);
     }
 
     private void verifiedParentType(SysPermission sysPermission){
@@ -230,11 +228,14 @@ public class PermissionServiceImpl implements PermissionService {
             if(!roleIdsByPermissionIds.isEmpty()){
                 List<String> userIds = userRoleService.getUserIdsByRoleIds(roleIdsByPermissionIds);
                 if(!userIds.isEmpty()){
-                    for (String userid : userIds) {
-                        redisService.set(Constant.JWT_REFRESH_KEY + userid, userid, tokenSetting.getAccessTokenExpireTime().toMillis(), TimeUnit.MILLISECONDS);
+                    for (String userId : userIds) {
+                        redisService.set(Constant.JWT_REFRESH_KEY + userId, userId, tokenSetting.getAccessTokenExpireTime().toMillis(), TimeUnit.MILLISECONDS);
+                        redisService.delete(Constant.IDENTIFY_CACHE_KEY+userId);
+
                     }
                 }
             }
+
         }
     }
 
@@ -264,8 +265,41 @@ public class PermissionServiceImpl implements PermissionService {
             if(!userIds.isEmpty()){
                 for (String userid : userIds) {
                     redisService.set(Constant.JWT_REFRESH_KEY + userid, userid, tokenSetting.getAccessTokenExpireTime().toMillis(), TimeUnit.MILLISECONDS);
+                    redisService.delete(Constant.IDENTIFY_CACHE_KEY+ userid);
                 }
             }
         }
+    }
+
+    @Override
+    public Set<String> getPermissionByUserId(String userId) {
+
+        List<SysPermission> list = getPermission(userId);
+
+        Set<String> permissions=new HashSet<>();
+        if (null==list||list.isEmpty()){
+            return null;
+        }
+
+        for (SysPermission sysPermission:list) {
+            if (!StringUtils.isEmpty(sysPermission.getPerms())) {
+                permissions.add(sysPermission.getPerms());
+            }
+        }
+        return permissions;
+    }
+
+    @Override
+    public List<SysPermission> getPermission(String userId) {
+        List<String> roleIds = userRoleService.getRoleIdsByUserId(userId);
+        if(roleIds.isEmpty()){
+            return null;
+        }
+        List<String> permissionIds= rolePermissionService.getPermissionIdsByRoles(roleIds);
+        if (permissionIds.isEmpty()){
+            return null;
+        }
+        List<SysPermission> result=sysPermissionMapper.selectInfoByIds(permissionIds);
+        return result;
     }
 }

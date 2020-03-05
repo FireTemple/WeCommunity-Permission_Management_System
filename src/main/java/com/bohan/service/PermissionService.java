@@ -6,6 +6,7 @@ import com.bohan.vo.request.PermissionUpdateReqVo;
 import com.bohan.vo.respose.PermissionRespNodeVo;
 
 import java.util.List;
+import java.util.Set;
 
 public interface PermissionService {
     List<SysPermission> selectAll();
@@ -15,4 +16,6 @@ public interface PermissionService {
     List<PermissionRespNodeVo> selectAllTree();
     void updatePermission(PermissionUpdateReqVo vo);
     void deletePermission(String permissionId);
+    Set<String> getPermissionByUserId(String userId);
+    List<SysPermission> getPermission(String userId);
 }

@@ -82,7 +82,7 @@ public class UserController {
 
     @PostMapping("/users")
     @ApiOperation(value = "分页获取用户列表接口")
-//    @RequiresPermissions("sys:user:list")
+    @RequiresPermissions("sys:user:list")
     public DataResult<PageVo<SysUser>> pageInfo(@RequestBody UserPageReqVO vo){
         DataResult<PageVo<SysUser>> result = DataResult.success();
         result.setData(userService.pageInfo(vo));
@@ -92,6 +92,7 @@ public class UserController {
     @PostMapping("/user")
     @ApiOperation(value = "新增用户")
     @MyLog(title = "组织管理-用户管理", action = "新增用户")
+    @RequiresPermissions("sys:user:add")
     public DataResult ADDuSER(@RequestBody @Valid UserAddReqVo vo){
         DataResult result = DataResult.success();
         userService.addUser(vo);
@@ -101,6 +102,7 @@ public class UserController {
     @GetMapping("/user/roles/{userId}")
     @ApiOperation(value = "用户拥有的角色数据接口")
     @MyLog(title = "组织管理-用户管理", action = "用户拥有的角色数据接口")
+    @RequiresPermissions("sys:user:role:update")
     public DataResult<UserOwnRoleRespVo> getUserOwnRole(@PathVariable("userId") String userId){
         DataResult result = DataResult.success();
         result.setData(userService.getUserOwnRole(userId));
@@ -110,6 +112,7 @@ public class UserController {
     @PutMapping("/user/roles")
     @ApiOperation(value = "保持用户拥有的角色信息接口")
     @MyLog(title = "组织管理-用户管理", action = "保持用户拥有的角色信息接口")
+    @RequiresPermissions("sys:user:role:update")
     public DataResult saveUserOwnRole(@RequestBody @Valid UserOwnRoleReqVo vo){
         DataResult result = DataResult.success();
         userService.setUserOwnRole(vo);
@@ -130,6 +133,7 @@ public class UserController {
     @PutMapping("/user")
     @ApiOperation(value = "更新用户接口")
     @MyLog(title = "组织管理-用户管理", action = "更新用户接口")
+    @RequiresPermissions("sys:user:update")
     public DataResult updateUserInfo(@RequestBody @Valid UserUpdateReqVo vo, HttpServletRequest request){
         String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
         String curUserId = JwtTokenUtil.getUserId(accessToken);
@@ -141,6 +145,7 @@ public class UserController {
     @DeleteMapping("user")
     @ApiOperation(value = "批量删除用户接口")
     @MyLog(title = "组织管理-用户管理", action = "批量删除用户接口")
+    @RequiresPermissions("sys:user:delete")
     public DataResult deleteUsers(@RequestBody @ApiParam(value = "用户Id集合") List<String> list, HttpServletRequest request){
         String accessToken = request.getHeader(Constant.ACCESS_TOKEN);
         String curUserId = JwtTokenUtil.getUserId(accessToken);

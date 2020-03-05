@@ -2,6 +2,7 @@ package com.bohan.shiro;
 
 import com.alibaba.fastjson.JSON;
 
+import com.bohan.constant.Constant;
 import com.bohan.service.RedisService;
 import com.bohan.utils.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -16,13 +17,13 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class RedisCache<K,V> implements Cache<K,V> {
-    private final static String PREFIX = "shiro-cache:";
+//    private final static String PREFIX = "shiro-cache:";
     private String cacheKey;
     private long expire = 24;
     private RedisService redisService;
 
     public RedisCache(String name,RedisService redisService){
-        this.cacheKey=PREFIX+name+":";
+        this.cacheKey= Constant.IDENTIFY_CACHE_KEY;
         this.redisService=redisService;
     }
     @Override

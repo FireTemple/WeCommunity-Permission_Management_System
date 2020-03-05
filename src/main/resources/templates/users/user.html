@@ -55,7 +55,7 @@
     </div>
 </div>
 <div class="user_table_div">
-    <div id="searchParam" >
+    <div id="searchParam" shiro:hasPermission="sys:user:list">
         <div class="layui-form-item">
             <div class="layui-input-inline">
                 <input type="text" id="userId" class="layui-input"  autocomplete="off" placeholder="请输入用户ID">
@@ -90,20 +90,20 @@
 </body>
 <script type="text/html" id="toolbar">
     <div class="layui-btn-group">
-        <button type="button" class="layui-btn" lay-event="addNewUser">
+        <button type="button" class="layui-btn" lay-event="addNewUser" shiro:hasPermission="sys:user:add">
             <i class="layui-icon">&#xe608;</i> 新增用户
         </button>
     </div>
     <div class="layui-btn-group">
-        <button type="button" class="layui-btn" lay-event="batchDeleted" >
+        <button type="button" class="layui-btn" lay-event="batchDeleted"  shiro:hasPermission="sys:user:delete">
             <i class="layui-icon">&#xe608;</i> 批量删除
         </button>
     </div>
 </script>
 <script type="text/html" id="tool">
-    <a class="layui-btn  layui-btn-xs" lay-event="operationRole" >赋予角色</a>
-    <a class="layui-btn layui-btn-xs" lay-event="edit" >编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn  layui-btn-xs" lay-event="operationRole" shiro:hasPermission="sys:user:role:update">赋予角色</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit" shiro:hasPermission="sys:user:update" >编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" shiro:hasPermission="sys:user:delete">删除</a>
 </script>
 <script src="/layui/layui.js"></script>
 <script src="/js/core.util.js"></script>

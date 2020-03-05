@@ -9,6 +9,8 @@ import com.bohan.vo.request.DeptAddReqVo;
 import com.bohan.vo.request.DeptUpdateReqVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +27,7 @@ public class DeptController {
 
     @GetMapping("/depts")
     @ApiOperation(value = "查询所有部门接口")
+    @RequiresPermissions("sys:dept:list")
     @MyLog(title = "组织部门-部门管理", action = "查询所有部门接口")
     public DataResult<List<SysDept>> getAllDepts(){
         DataResult result = DataResult.success();
@@ -35,6 +38,7 @@ public class DeptController {
     @GetMapping("/dept/tree")
     @ApiOperation(value = "部门树型结构列表接口")
     @MyLog(title = "组织部门-部门管理", action = "部门树型结构列表接口")
+    @RequiresPermissions(value = {"sys:user:update","sys:user:add","sys:dept:add","sys:dept:update"},logical = Logical.OR)
     public DataResult<List<SysDept>> getDeptTree(@RequestParam(required = false) String deptId){
         DataResult result = DataResult.success();
         result.setData(deptService.deptTreeList(deptId));
@@ -44,6 +48,7 @@ public class DeptController {
     @PostMapping("/dept")
     @ApiOperation(value = "新增部门数据接口")
     @MyLog(title = "组织部门-部门管理", action = "新增部门数据接口")
+    @RequiresPermissions("sys:dept:add")
     public DataResult<SysDept> addDept(@RequestBody @Valid DeptAddReqVo vo){
         DataResult result = DataResult.success();
         result.setData(deptService.addDept(vo));
@@ -53,6 +58,7 @@ public class DeptController {
     @PutMapping("/dept")
     @ApiOperation(value = "更新部门数据接口")
     @MyLog(title = "组织部门-部门管理", action = "更新部门数据接口")
+    @RequiresPermissions("sys:dept:update")
     public DataResult updateDept(@RequestBody @Valid DeptUpdateReqVo vo){
         deptService.updateDept(vo);
         return DataResult.success();
@@ -60,6 +66,7 @@ public class DeptController {
 
     @DeleteMapping("/dept/{id}")
     @ApiOperation(value = "删除部门数据接口")
+    @RequiresPermissions("sys:dept:delete")
     @MyLog(title = "组织部门-部门管理", action = "删除部门数据接口")
     public DataResult deleteDept(@PathVariable("id") String id){
         deptService.deleteDept(id);

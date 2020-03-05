@@ -31,6 +31,7 @@ public class PermissionController {
     @GetMapping("/permissions")
     @ApiOperation(value = "获取菜单所有权限数据")
     @MyLog(title = "组织管理-菜单权限管理", action = "获取菜单所有权限数据")
+    @RequiresPermissions("sys:permission:list")
     public DataResult<List<SysPermission>> getAllPermission(){
         DataResult result = DataResult.success();
         result.setData(permissionService.selectAll());
@@ -40,6 +41,7 @@ public class PermissionController {
     @GetMapping("/permission/tree")
     @ApiOperation(value = "菜单权限树接口-只递归查询到菜单接口")
     @MyLog(title = "组织管理-菜单权限管理", action = "菜单权限树接口-只递归查询到菜单接口")
+    @RequiresPermissions(value = {"sys:permission:update","sys:permission:add"},logical = Logical.OR)
     public DataResult<List<PermissionRespNodeVo>> getAllPermissionTreeExBtn(){
         DataResult result = DataResult.success();
         result.setData(permissionService.selectAllMenuByTree());
@@ -49,6 +51,7 @@ public class PermissionController {
     @PostMapping("/permission")
     @ApiOperation(value = "新增菜单权限接口")
     @MyLog(title = "组织管理-菜单权限管理", action = "新增菜单权限接口")
+    @RequiresPermissions("sys:permission:add")
     public DataResult<SysPermission> addPermission(@RequestBody @Valid PermissionAddReqVO vo){
         DataResult result = DataResult.success();
         result.setData(permissionService.addPermission(vo));
@@ -57,6 +60,7 @@ public class PermissionController {
 
     @GetMapping("/permission/tree/all")
     @ApiOperation(value = "菜单权限树接口-递归查询所有")
+    @RequiresPermissions(value = {"sys:role:update","sys:role:add"},logical = Logical.OR)
     @MyLog(title = "组织管理-菜单权限管理", action = "菜单权限树接口-递归查询所有")
     public DataResult<List<PermissionRespNodeVo>> getAllPermissionTree(){
         DataResult result = DataResult.success();
@@ -67,6 +71,7 @@ public class PermissionController {
     @PutMapping("/permission/")
     @ApiOperation(value = "编辑菜单权限接口")
     @MyLog(title = "组织管理-菜单权限管理", action = "编辑菜单权限接口")
+    @RequiresPermissions("sys:permission:update")
     public DataResult updatePermission(@RequestBody @Valid PermissionUpdateReqVo vo){
         permissionService.updatePermission(vo);
         DataResult result = DataResult.success();
@@ -76,6 +81,7 @@ public class PermissionController {
     @DeleteMapping("/permission/{permissionId}")
     @ApiOperation(value = "删除菜单权限接口")
     @MyLog(title = "组织管理-菜单权限管理", action = "删除菜单权限接口")
+    @RequiresPermissions("sys:permission:delete")
     public DataResult removePermission(@PathVariable("permissionId") String permissionId){
         DataResult result = DataResult.success();
         permissionService.deletePermission(permissionId);

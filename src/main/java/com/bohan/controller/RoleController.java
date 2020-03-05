@@ -3,6 +3,7 @@ package com.bohan.controller;
 import com.bohan.aop.annotation.MyLog;
 import com.bohan.entity.SysRole;
 import com.bohan.service.RoleService;
+import com.bohan.service.impl.RoleServiceImpl;
 import com.bohan.utils.DataResult;
 import com.bohan.vo.request.AddRoleReqVo;
 import com.bohan.vo.request.RolePageReqVo;
@@ -11,6 +12,7 @@ import com.bohan.vo.request.RoleUpdateReqVo;
 import com.bohan.vo.respose.PageVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,11 +25,12 @@ import javax.xml.crypto.Data;
 public class RoleController {
 
     @Autowired
-    private RoleService roleService;
+    private RoleServiceImpl roleService;
 
     @PostMapping("/roles")
     @ApiOperation(value = "分页获取角色数据")
     @MyLog(title = "组织管理-角色管理", action = "分页获取角色数据")
+    @RequiresPermissions("sys:role:list")
     public DataResult<PageVo<SysRole>> pageInfo(@RequestBody RolePageReqVo vo){
         DataResult result = DataResult.success();
         result.setData(roleService.pageInfo(vo));
@@ -37,6 +40,7 @@ public class RoleController {
     @PostMapping("/role")
     @ApiOperation(value = "新增角色接口")
     @MyLog(title = "组织管理-角色管理", action = "新增角色接口")
+    @RequiresPermissions("sys:role:add")
     public DataResult<SysRole> addRole(@RequestBody @Valid AddRoleReqVo vo){
         DataResult result = DataResult.success();
         result.setData(roleService.addRole(vo));
@@ -47,6 +51,7 @@ public class RoleController {
     @GetMapping("/role/{id}")
     @ApiOperation(value = "获取用户详情")
     @MyLog(title = "组织管理-角色管理", action = "获取用户详情")
+    @RequiresPermissions("sys:role:detail")
     public DataResult detailInfo(@PathVariable("id") String id){
         DataResult result = DataResult.success();
         result.setData(roleService.detailInfo(id));
@@ -56,6 +61,7 @@ public class RoleController {
     @PutMapping("/role")
     @ApiOperation(value = "更新角色信息接口")
     @MyLog(title = "组织管理-角色管理", action = "更新角色信息接口")
+    @RequiresPermissions("sys:role:update")
     public DataResult updateRole(@RequestBody @Valid RoleUpdateReqVo vo){
         DataResult result = DataResult.success();
         roleService.updateRole(vo);
@@ -65,6 +71,7 @@ public class RoleController {
     @DeleteMapping("/role/{id}")
     @ApiOperation(value = "删除用户接口")
     @MyLog(title = "组织管理-角色管理", action = "删除用户接口")
+    @RequiresPermissions("sys:role:delete")
     public DataResult deleteRole(@PathVariable("id")  String id){
         roleService.deleteRole(id);
         return DataResult.success();

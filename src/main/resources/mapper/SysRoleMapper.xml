@@ -138,6 +138,14 @@
     </where>
   </select>
 
-
+  <select id="getRoleInfoByIds" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"></include>
+    from sys_role
+    where id in
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+    and deleted=1
+  </select>
 
 </mapper>

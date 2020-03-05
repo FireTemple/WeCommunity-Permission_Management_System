@@ -1,5 +1,6 @@
 package com.bohan.service;
 
+import com.bohan.entity.SysRole;
 import com.bohan.entity.SysUser;
 import com.bohan.vo.request.*;
 import com.bohan.vo.respose.LoginRespVo;
